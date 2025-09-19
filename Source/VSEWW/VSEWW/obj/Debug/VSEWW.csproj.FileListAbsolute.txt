@@ -1,0 +1,9 @@
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.AssemblyReference.cache
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.CoreCompileInputs.cache
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\1.6\Assemblies\VSEWW.dll
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\Source\VSEWW\VSEWW\obj\Debug\VSEWW.dll
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\1.5\Assemblies\VSEWW.dll
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_HSK\1.5\Assemblies\VSEWW.dll
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.AssemblyReference.cache
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.CoreCompileInputs.cache
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.dll

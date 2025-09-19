@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <VSEWW_ExcellentPawnJoins.label>Поселенец</VSEWW_ExcellentPawnJoins.label>
+  <VSEWW_ExcellentPawnJoins.description>К поселению присоединятся 5 персонажей стоимостью от 175 боевых очков.</VSEWW_ExcellentPawnJoins.description>
+
+  <VSEWW_ExcellentResourceDrop.label>Ресурсы</VSEWW_ExcellentResourceDrop.label>
+  <VSEWW_ExcellentResourceDrop.description>Грузовой контейнер, содержащий 1000 дерева, 1000 стали, 300 ферротитана, 60 механизмов, 20 продвинутых механизмов, 120 компонентов, 60 продвинутых компонентов, 20 высокотехнологичных компонентов, 60 электронных компонентов, 20 интегральных схем, 5 микрочипов.</VSEWW_ExcellentResourceDrop.description>
+
+  <VSEWW_ExcellentFoodAndMedicineDrop.label>Еда и медикаменты</VSEWW_ExcellentFoodAndMedicineDrop.label>
+  <VSEWW_ExcellentFoodAndMedicineDrop.description>Грузовой контейнер, содержащий 120 сухих пайков, 20 передовых медикаментов и 100 медикаментов.</VSEWW_ExcellentFoodAndMedicineDrop.description>
+
+  <VSEWW_ExcellentFuelDrop.label>Топливо</VSEWW_ExcellentFuelDrop.label>
+  <VSEWW_ExcellentFuelDrop.description>Грузовой контейнер, содержащий 2000 угля, 2000 древесины и 4 топливных стержня.</VSEWW_ExcellentFuelDrop.description>
+
+  <VSEWW_ExcellentWeaponDrop.label>Отличное оружие</VSEWW_ExcellentWeaponDrop.label>
+  <VSEWW_ExcellentWeaponDrop.description>Грузовой контейнер, содержащий 3 случайных индустриальных оружия отличного качества.</VSEWW_ExcellentWeaponDrop.description>
+
+  <VSEWW_ExcellentArmorDrop.label>Отличная броня</VSEWW_ExcellentArmorDrop.label>
+  <VSEWW_ExcellentArmorDrop.description>Грузовой контейнер, содержащий 3 случайных ед. индустриальной брони отличного качества</VSEWW_ExcellentArmorDrop.description>
+
+  <VSEWW_ExcellentCashDrop.label>Деньги</VSEWW_ExcellentCashDrop.label>
+  <VSEWW_ExcellentCashDrop.description>Грузовой контейнер, содержащий 10000 ед. серебра и 500 золота.</VSEWW_ExcellentCashDrop.description>
+
+  <VSEWW_DelayBy15.label>Отложить волну</VSEWW_DelayBy15.label>
+  <VSEWW_DelayBy15.description>Следующая волна будет отложена на 15 дней.</VSEWW_DelayBy15.description>
+
+  <VSEWW_WargDrop.label>Варг</VSEWW_WargDrop.label>
+  <VSEWW_WargDrop.description>Грузовой контейнер, содержащий 10 прирученных варгов.</VSEWW_WargDrop.description>
+
+  <VSEWW_ExcellentSkillBoost.label>Усиление навыков</VSEWW_ExcellentSkillBoost.label>
+  <VSEWW_ExcellentSkillBoost.description>Увеличение всех навыков персонажей под вашим контролем на 2.</VSEWW_ExcellentSkillBoost.description>
+
+  <VSEWW_ExcellentReseachBoost.label>Ускорение исследований</VSEWW_ExcellentReseachBoost.label>
+  <VSEWW_ExcellentReseachBoost.description>Мгновенное изучение 8 случайных доступных технологий.</VSEWW_ExcellentReseachBoost.description>
+
+  <VSEWW_ExcellentArchotechArtifactsDrop.label>Архоартефакты</VSEWW_ExcellentArchotechArtifactsDrop.label>
+  <VSEWW_ExcellentArchotechArtifactsDrop.description>8 случайных архотехнологичных вещей (могут быть сложенными постройками).</VSEWW_ExcellentArchotechArtifactsDrop.description>
+
+  <VSEWW_TargetersDrop.label>Целеуказатели</VSEWW_TargetersDrop.label>
+  <VSEWW_TargetersDrop.description>Получить целеуказатель для силового луча, целеуказатель для бомбардировки и генератор вихря.</VSEWW_TargetersDrop.description>
+
+  <VSEWW_ExcellentDrugsDrop.label>Наркотики</VSEWW_ExcellentDrugsDrop.label>
+  <VSEWW_ExcellentDrugsDrop.description>Получить 100 ед. амброзии, 100 психинового чая, 200 пива, 200 косяков дымолиста, 200 хлопьев психина, 200 порошка психина, 200 бодрина, 200 Go-сока.</VSEWW_ExcellentDrugsDrop.description>
+
+  <VSEWW_ExcellentProstheticsDrop.label>Протезы</VSEWW_ExcellentProstheticsDrop.label>
+  <VSEWW_ExcellentProstheticsDrop.description>Грузовой контейнер, содержащий 5 случайных кибернетических протезов.</VSEWW_ExcellentProstheticsDrop.description>
+
+  <VSEWW_MechSerumHealerDrop.label>Сыворотка исцеления</VSEWW_MechSerumHealerDrop.label>
+  <VSEWW_MechSerumHealerDrop.description>Грузовой контейнер, содержащий 5 ед. сыворотки исцеления.</VSEWW_MechSerumHealerDrop.description>
+
+  <VSEWW_RandomLegendaryDrop.label>Случ. легендарная награда</VSEWW_RandomLegendaryDrop.label>
+  <VSEWW_RandomLegendaryDrop.description>Вместо конкретной награды «отличного» уровня можно получить случайную награду «легендарного» уровня.</VSEWW_RandomLegendaryDrop.description>
+
+  <VSEWW_ExcellentAmmoDrop.label>Боеприпасы</VSEWW_ExcellentAmmoDrop.label>
+  <VSEWW_ExcellentAmmoDrop.description>Грузовой контейнер, содержащий 2560 ед. случайных энергетических боеприпасов и 100 продвинутых гранат.</VSEWW_ExcellentAmmoDrop.description>
+
+  <VSEWW_ExcellentturretDrop.label>Туррели</VSEWW_ExcellentturretDrop.label>
+  <VSEWW_ExcellentturretDrop.description>Грузовой контейнер, содержащий 3 КПВ и 900 боеприпасов.</VSEWW_ExcellentturretDrop.description>
+
+  <VSEWW_MicroTurret.label>Микротуррели</VSEWW_MicroTurret.label>
+  <VSEWW_MicroTurret.description>Грузовой контейнер, содержащий 3 микротуррели.</VSEWW_MicroTurret.description>
+
+  <VSEWW_ExcellentParabellumTurret.label>Туррели парабеллум</VSEWW_ExcellentParabellumTurret.label>
+  <VSEWW_ExcellentParabellumTurret.description>Грузовой контейнер, содержащий 3 MG131Z и 900 боеприпасов.</VSEWW_ExcellentParabellumTurret.description>
+
+  <VSEWW_ExcellentParabellumCannon.label>Пушки парабеллум</VSEWW_ExcellentParabellumCannon.label>
+  <VSEWW_ExcellentParabellumCannon.description>Грузовой контейнер, содержащий 3 5см автопушки и 300 снарядов.</VSEWW_ExcellentParabellumCannon.description>
+
+
+</LanguageData>

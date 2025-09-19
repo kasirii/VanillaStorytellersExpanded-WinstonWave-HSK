@@ -1,0 +1,2 @@
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\Source\VSEWW\VSEWW\obj\Release\VSEWW.csproj.AssemblyReference.cache
+C:\Users\snail\Desktop\VanillaStorytellersExpanded-WinstonWave_CE\Source\VSEWW\VSEWW\obj\Release\VSEWW.csproj.CoreCompileInputs.cache

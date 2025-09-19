@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VSEWW.RewardDef MayRequire="ChJees.Androids">
+    <defName>VSEWW_AndroidJoins</defName>
+    <texPath>UI/Rewards/RewardPawnJoins_Legendary</texPath>
+    <label>Android join</label>
+    <description>Android colonist join</description>
+    <category>Legendary</category>
+  <type>Combat</type>
+    <pawns>
+      <li>
+        <pawnkind>ChjAndroidColonist</pawnkind>
+        <count>1</count>
+      </li>
+    </pawns>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_LegendaryResourceDrop</defName>
+    <texPath>UI/Rewards/RewardResourceDrop_Legendary</texPath>
+    <label>Resource drop</label>
+	<type>Resources</type>
+    <description>Cargo pods drop 3000 wood, 3000 steel, 500 Ferrotitanium, 100 Mechanism, 50 Mechanism Advanced, 200 components, 100 advanced components, 100 Electronic Components, 50 spacer components, 10 ultra component, 50 Integrated Circuits, 10 Microchips, 5 BioMicrochips</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>WoodLog</thing>
+        <count>3000</count>
+      </li>
+      <li>
+        <thing>Plasteel</thing>
+        <count>3000</count>
+      </li>
+      <li>
+        <thing>TitaniumBar</thing>
+        <count>500</count>
+      </li>
+      <li>
+        <thing>ComponentIndustrial</thing>
+        <count>200</count>
+      </li>
+      <li>
+        <thing>Mechanism</thing>
+        <count>100</count>
+      </li>
+      <li>
+        <thing>ComponentAdvanced</thing>
+        <count>100</count>
+      </li>
+      <li>
+        <thing>ComponentSpacer</thing>
+        <count>50</count>
+      </li>
+      <li>
+        <thing>AdvMechanism</thing>
+        <count>50</count>
+      </li>
+      <li>
+        <thing>ComponentUltra</thing>
+        <count>10</count>
+      </li>
+      <li>
+        <thing>ElectronicComponents</thing>
+        <count>100</count>
+      </li>
+      <li>
+        <thing>Electronics</thing>
+        <count>50</count>
+      </li>
+      <li>
+        <thing>Microchips</thing>
+        <count>10</count>
+      </li>
+      <li>
+        <thing>BioMicrochips</thing>
+        <count>5</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_SurvivalMeansDrop</defName>
+    <texPath>UI/Rewards/RewardSurvivalMeans_Legendary</texPath>
+    <label>Survival means drop</label>
+	<type>Resources</type>
+    <description>Cargo pods drop 250 survival meals, 50 glitterworld medicine, 5 Mechanite healer mech serums and 200 medicine</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>MealSurvivalPack</thing>
+        <count>250</count>
+      </li>
+      <li>
+        <thing>MedicineIndustrial</thing>
+        <count>200</count>
+      </li>
+      <li>
+        <thing>MedicineUltratech</thing>
+        <count>50</count>
+      </li>
+      <li>
+        <thing>MechSerumHealer</thing>
+        <count>5</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_LegendaryFuelDrop</defName>
+    <texPath>UI/Rewards/RewardFuelDrop_Legendary</texPath>
+    <label>Fuel drop</label>
+	<type>Resources</type>
+    <description>Cargo pods drop 4000 coal, 2000 wood and 8 MOX fuel rods</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>Coal</thing>
+        <count>4000</count>
+      </li>
+      <li>
+        <thing>WoodLog</thing>
+        <count>2000</count>
+      </li>
+      <li>
+        <thing>FuelRodsMOX</thing>
+        <count>8</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_LegendaryGearDrop</defName>
+    <texPath>UI/Rewards/RewardGear_Legendary</texPath>
+    <label>Legendary gear drop</label>
+	<type>Combat</type>
+    <description>Cargo pods 3 random Spacer weapons and 3 random spacer armors drop, quality is Legendary</description>
+    <category>Legendary</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>Futuristic</li>
+        </thingCategories>
+        <excludeThingCategories>
+          <li MayRequire="CETeam.CombatExtended">Ammo</li>
+        </excludeThingCategories>
+        <quality>Legendary</quality>
+        <count>2</count>
+      </li>
+       <li>
+        <randomFrom>
+          <li>MeleeWeapon_WraithBlade</li>
+          <li>MeleeWeapon_MonoSwordBladelink</li>
+          <li>MeleeWeapon_ZeusHammerBladelink</li>
+          <li>MeleeWeapon_PlasmaSwordBladelink</li>
+        </randomFrom>
+        <quality>Legendary</quality>
+        <count>1</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>Apparel_PowerArmorHelmet</li>
+          <li>SiegearmorHelmet</li>
+          <li>CCArmorHelmet</li>
+          <li>Apparel_ArmorHelmetRecon</li>
+          <li>Apparello_Antsyhat</li>
+          <li>Apparello_Meffect</li>
+          <li>Apparello_Hivehat</li>
+          <li>Apparello_Hivehell</li>
+          <li>Apparello_LPow</li>
+          <li>Apparel_DoomHelmet</li>
+          <li>Apparel_HellPowerArmorHelmet</li>
+          <li>Apparello_Meffectwo</li>
+        </randomFrom>
+        <quality>Legendary</quality>
+        <count>1</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>Apparel_PowerArmor</li>
+          <li>Apparel_PhaseArmor</li>
+          <li>Apparel_ArmorRecon</li>
+          <li>Apparello_Steamhull</li>
+          <li>Apparel_HellPowerArmor</li>
+          <li>Rimarsenal_InteractorCloak</li>
+          <li>Siegearmor</li>
+          <li>CCArmor</li>
+        </randomFrom>
+        <quality>Legendary</quality>
+        <count>1</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>MedievalTimes_Boots_Techno</li>
+          <li>Apparello_Spboots</li>
+          <li>Apparello_Snipeglove</li>
+          <li>MedievalTimes_Gauntlets_Techno</li>
+        </randomFrom>
+        <quality>Legendary</quality>
+        <count>1</count>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_CashAndRiches</defName>
+    <texPath>UI/Rewards/RewardCashAndRiches_Legendary</texPath>
+    <label>Cash and Riches</label>
+    <description>Cargo pods drop 25000 silver, 1000 gold and 1000 Jade</description>
+    <category>Legendary</category>
+	<type>Resources</type>
+    <items>
+      <li>
+        <thing>Silver</thing>
+        <count>25000</count>
+      </li>
+      <li>
+        <thing>Gold</thing>
+        <count>1000</count>
+      </li>
+      <li>
+        <thing>Jade</thing>
+        <count>1000</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_ThrumboDrop</defName>
+    <texPath>UI/Rewards/RewardThrumboDrop_Legendary</texPath>
+    <label>Thrumbo drop</label>
+	<type>Misc</type>
+    <description>Cargo pod drops 3 tamed thrumbos</description>
+    <category>Legendary</category>
+    <pawns>
+      <li>
+        <pawnkind>Thrumbo</pawnkind>
+        <count>3</count>
+      </li>
+    </pawns>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_LegendarySkillBoost</defName>
+    <texPath>UI/Rewards/RewardSkillBoost_Legendary</texPath>
+    <label>Skill boost</label>
+	<type>Misc</type>
+    <description>Improve every skill of every colonist under your control by 3</description>
+    <category>Legendary</category>
+    <boostSkillBy>3</boostSkillBy>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_ArchotechProstheticsDrop</defName>
+    <texPath>UI/Rewards/RewardArchotechProsthethicsDrop_Legendary</texPath>
+    <label>Archotech body parts drop</label>
+    <description>Cargo pod drops 5 random archotech body parts</description>
+    <category>Legendary</category>
+	<type>Misc</type>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li MayRequire="Teok25.ArchotechExpanded.Prosthetics">BodyPartsUltra</li>
+        </thingCategories>
+        <count>5</count>
+        <quality MayRequire="rebelrabbit.qualitybionics">Legendary</quality>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_MassHeal</defName>
+    <texPath>UI/Rewards/RewardMassHeal_Legendary</texPath>
+    <label>Mass Heal</label>
+	<type>Misc</type>
+    <description>Instantly heals all the wounds on all colonists under player control</description>
+    <category>Legendary</category>
+    <massHeal>True</massHeal>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_LegendaryTurretDrop</defName>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
+    <label>Turret drop</label>
+    <description>Cargo pod drops 3 Avenger and 900 30mm ammo</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>AvengerTurretGun</thing>
+        <count>3</count>
+      </li>
+      <li>
+        <thing>Ammo_30x173mm_FMJ</thing>
+        <count>900</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
+    <defName>VSEWW_LegendaryParabellumTurret</defName>
+    <label>Parabellum turret drop</label>
+    <texPath>UI/Rewards/RewardDefault_Legendary</texPath>
+    <description>Cargo pod drops 3 Parabellum 3cm Flak 103/38 AA(Quad) and 900 30mm ammo</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>Turret_MK103AAQ</thing>
+        <count>3</count>
+      </li>
+      <li>
+        <thing>Ammo_30x173mm_FMJ</thing>
+        <count>900</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+  
+  <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
+    <defName>VSEWW_LegendaryParabellumCannon</defName>
+    <label>Parabellum cannon drop</label>
+    <texPath>UI/Rewards/RewardDefault_Legendary</texPath>
+    <description>Cargo pod drops 3 Parabellum 12,8cm FlaK 40z HAAP and 300 12.8cm shells</description>
+    <category>Legendary</category>
+    <items>
+      <li>
+        <thing>Turret_FlaK40ZHAAP</thing>
+        <count>3</count>
+      </li>
+      <li>
+        <thing>Ammo_128mmCannonShell_HE</thing>
+        <count>300</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+</Defs>

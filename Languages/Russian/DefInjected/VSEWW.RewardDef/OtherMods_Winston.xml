@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Royalty -->
+
+  <VSEWW_PsylinkNeuroformer.label>Нейроформер псисвязи</VSEWW_PsylinkNeuroformer.label>
+  <VSEWW_PsylinkNeuroformer.description>Грузовой контейнер, содержащий нейроформер псисвязи.</VSEWW_PsylinkNeuroformer.description>
+
+  <VSEWW_RestorePsyfocus.label>Восстановить псифокус</VSEWW_RestorePsyfocus.label>
+  <VSEWW_RestorePsyfocus.description>Полностью восстановить псифокус всех псикастеров колонии.</VSEWW_RestorePsyfocus.description>
+
+  <VSEWW_Honor_Good.label>Получить милость короны</VSEWW_Honor_Good.label>
+  <VSEWW_Honor_Good.description>Случайный колонист получит 10 очков милости короны в Империи.</VSEWW_Honor_Good.description> 
+  
+  <VSEWW_Honor_Excellent.label>Получить милость короны</VSEWW_Honor_Excellent.label>
+  <VSEWW_Honor_Excellent.description>Случайный колонист получит 25 очков милости короны в Империи.</VSEWW_Honor_Excellent.description> 
+
+  <VSEWW_Honor_Legendary.label>Получить милость короны</VSEWW_Honor_Legendary.label>
+  <VSEWW_Honor_Legendary.description>Случайный колонист получит 50 очков милости короны в Империи.</VSEWW_Honor_Legendary.description> 
+
+  <!-- Biotech -->
+
+  <VSEWW_GeneticsNormal.label>Генпаки</VSEWW_GeneticsNormal.label>
+  <VSEWW_GeneticsNormal.description>Получить 3 случайных генетических пакета.</VSEWW_GeneticsNormal.description>
+
+  <VSEWW_MechanitorNormal.label>Механитору</VSEWW_MechanitorNormal.label>
+  <VSEWW_MechanitorNormal.description>Получите три случайных субъядра и случайный мех чип.</VSEWW_MechanitorNormal.description>
+
+  <VSEWW_RandomXenotypeJoins_Poor.label>Ксеночеловек</VSEWW_RandomXenotypeJoins_Poor.label>
+  <VSEWW_RandomXenotypeJoins_Poor.description>Один ксеночеловек, стоимостью до 150 боевых очков, присоединяется к колонии.</VSEWW_RandomXenotypeJoins_Poor.description> 
+  
+  <VSEWW_RandomSanguophage_Excellent.label>Сангвинофаг</VSEWW_RandomSanguophage_Excellent.label>
+  <VSEWW_RandomSanguophage_Excellent.description>Сангвинофаг, стоимостью до 225 боевых очков, присоединяется к колонии.</VSEWW_RandomSanguophage_Excellent.description> 
+
+  <VSEWW_FriendlyMechanoidsExcellent.label>Механоиды</VSEWW_FriendlyMechanoidsExcellent.label>
+  <VSEWW_FriendlyMechanoidsExcellent.description>Получение огнеметной сентипеды, бластерной сентипеды и тессерона.</VSEWW_FriendlyMechanoidsExcellent.description> 
+
+  <!-- Anomaly -->
+
+  <VSEWW_ShardNormal.label>Осколок</VSEWW_ShardNormal.label>
+  <VSEWW_ShardNormal.description>Получение одного фрагмента темной архотехнологии.</VSEWW_ShardNormal.description>
+
+  <VSEWW_GhoulNormal.label>Гуль</VSEWW_GhoulNormal.label>
+  <VSEWW_GhoulNormal.description>Гуль присоединяется к колонии.</VSEWW_GhoulNormal.description>
+
+  <VSEWW_ShardArtifactsDropGood.label>Артефакты аномали</VSEWW_ShardArtifactsDropGood.label>
+  <VSEWW_ShardArtifactsDropGood.description>Получение 4 случайных артефакта из аномали.</VSEWW_ShardArtifactsDropGood.description> 
+  
+  <VSEWW_SerumsGood.label>Сыворотки</VSEWW_SerumsGood.label>
+  <VSEWW_SerumsGood.description>Получение 5 случайных сывороток.</VSEWW_SerumsGood.description> 
+
+  <!-- Vanilla Faction Expanded Ancients -->
+
+  <VSEWW_SuperNanitesDrop.label>Супернаниты</VSEWW_SuperNanitesDrop.label>
+  <VSEWW_SuperNanitesDrop.description>Грузовой контейнер, содержащий 5 доз супернанитов.</VSEWW_SuperNanitesDrop.description>
+
+  <VSEWW_RandomLabDrop.label>Часть лаборатории</VSEWW_RandomLabDrop.label>
+  <VSEWW_RandomLabDrop.description>Грузовой контейнер, содержащий один модуль для капсулы биоподгонки.</VSEWW_RandomLabDrop.description>
+
+  <VSEWW_LegendaryRandomLabDrop.label>Части лаборатории</VSEWW_LegendaryRandomLabDrop.label>
+  <VSEWW_LegendaryRandomLabDrop.description>Грузовой контейнер, содержащий три модуля для капсулы биоподгонки.</VSEWW_LegendaryRandomLabDrop.description> 
+
+
+  <!-- Vanilla Faction Expanded Insectoid -->
+
+  <VSEWW_IncubatorDrop.label>Инкубатор</VSEWW_IncubatorDrop.label>
+  <VSEWW_IncubatorDrop.description>Грузовой контейнер, содержащий инкубатор.</VSEWW_IncubatorDrop.description>
+
+  <VSEWW_GenomeDrop.label>Геном</VSEWW_GenomeDrop.label>
+  <VSEWW_GenomeDrop.description>Грузовой контейнер, содержащий 5 случайных образцов генома.</VSEWW_GenomeDrop.description>
+
+  <VSEWW_PlasmaWeaponsDrop.label>Плазменное оружие</VSEWW_PlasmaWeaponsDrop.label>
+  <VSEWW_PlasmaWeaponsDrop.description>Грузовой контейнер, содержащий 3 случайных единицы плазменного оружия.</VSEWW_PlasmaWeaponsDrop.description>
+
+
+  <!-- Vanilla Faction Expanded Vikings -->
+
+  <VSEWW_CryoGearDrop.label>Криптоснаряжение</VSEWW_CryoGearDrop.label>
+  <VSEWW_CryoGearDrop.description>Грузовой контейнер, содержащий 3 случайных единицы криптоснаряжения.</VSEWW_CryoGearDrop.description>
+
+
+  <!-- Vanilla Weapons Expanded Laser -->
+
+  <VSEWW_LaserWeaponsDrop.label>Лазерное оружие</VSEWW_LaserWeaponsDrop.label>
+  <VSEWW_LaserWeaponsDrop.description>Грузовой контейнер, содержащий 3 случайных единицы лазерного оружия.</VSEWW_LaserWeaponsDrop.description>
+
+
+  <!-- Vanilla Weapons Expanded Heavy -->
+
+  <VSEWW_HeavyWeaponDrop.label>Тяжёлое оружие</VSEWW_HeavyWeaponDrop.label>
+  <VSEWW_HeavyWeaponDrop.description>Грузовой контейнер, содержащий одно случайное тяжёлое оружие или экзоскелет.</VSEWW_HeavyWeaponDrop.description>
+
+
+
+
+
+
+
+</LanguageData>

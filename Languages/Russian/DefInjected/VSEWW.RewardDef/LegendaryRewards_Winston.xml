@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <VSEWW_MercenaryJoins.label>Поселенец</VSEWW_MercenaryJoins.label>
+  <VSEWW_MercenaryJoins.description>К поселению присоединяется андроид.</VSEWW_MercenaryJoins.description>
+
+  <VSEWW_LegendaryResourceDrop.label>Ресурсы</VSEWW_LegendaryResourceDrop.label>
+  <VSEWW_LegendaryResourceDrop.description>Грузовой контейнер, содержащий 3000 дерева, 3000 стали, 500 ферротитана, 100 механизмов, 50 продвинутых механизмов, 200 компонентов, 100 продвинутых компонентов, 100 электронных компонентов, 50 высокотехнологичных компонентов, 10 ультракомпонентов, 50 интегральных схем, 10 микрочипов, 5 биомикрочипов.</VSEWW_LegendaryResourceDrop.description>
+
+  <VSEWW_SurvivalMeansDrop.label>Еда и медикаменты</VSEWW_SurvivalMeansDrop.label>
+  <VSEWW_SurvivalMeansDrop.description>Грузовой контейнер, содержащий 250 сухих пайков, 50 передовых медикаментов, 5 ед. сыворотки исцеления и 200 медикаментов.</VSEWW_SurvivalMeansDrop.description>
+
+  <VSEWW_LegendaryFuelDrop.label>Топливо</VSEWW_LegendaryFuelDrop.label>
+  <VSEWW_LegendaryFuelDrop.description>Грузовой контейнер, содержащий 4000 угля, 2000 древесины и 8 MOX стержней.</VSEWW_LegendaryFuelDrop.description>
+
+  <VSEWW_LegendaryGearDrop.label>Легендарное снаряжение</VSEWW_LegendaryGearDrop.label>
+  <VSEWW_LegendaryGearDrop.description>Грузовой контейнер, содержащий по 3 случайных ед. космических оружия и брони легендарного качества.</VSEWW_LegendaryGearDrop.description>
+
+  <VSEWW_CashAndRiches.label>Деньги и богатство</VSEWW_CashAndRiches.label>
+  <VSEWW_CashAndRiches.description>Грузовой контейнер, содержащий 25000 ед. серебра, 1000 золота и 1000 нефрита.</VSEWW_CashAndRiches.description>
+
+  <VSEWW_ThrumboDrop.label>Трумбо</VSEWW_ThrumboDrop.label>
+  <VSEWW_ThrumboDrop.description>Грузовой контейнер, содержащий 3 прирученных трумбо.</VSEWW_ThrumboDrop.description>
+
+  <VSEWW_LegendarySkillBoost.label>Усиление навыков</VSEWW_LegendarySkillBoost.label>
+  <VSEWW_LegendarySkillBoost.description>Увеличение всех навыков персонажей под вашим контролем на 3.</VSEWW_LegendarySkillBoost.description>
+
+  <VSEWW_ArchotechProstheticsDrop.label>Архопротезы</VSEWW_ArchotechProstheticsDrop.label>
+  <VSEWW_ArchotechProstheticsDrop.description>Грузовой контейнер, содержащий 5 случайных частей тела уровня архотек.</VSEWW_ArchotechProstheticsDrop.description>
+
+  <VSEWW_MassHeal.label>Массовое лечение</VSEWW_MassHeal.label>
+  <VSEWW_MassHeal.description>Мгновенное исцеляет любые раны всех персонажей под контролем игрока.</VSEWW_MassHeal.description>
+
+  <VSEWW_LegendaryTurretDrop.label>Туррели</VSEWW_LegendaryTurretDrop.label>
+  <VSEWW_LegendaryTurretDrop.description>Грузовой контейнер, содержащий 3 Мстителя и 900 боеприпасов.</VSEWW_LegendaryTurretDrop.description>
+
+  <VSEWW_LegendaryParabellumTurret.label>Туррели парабеллум</VSEWW_LegendaryParabellumTurret.label>
+  <VSEWW_LegendaryParabellumTurret.description>Грузовой контейнер, содержащий 3 3cm Flak 103/38 AA(Quad) и 900 боеприпасов.</VSEWW_LegendaryParabellumTurret.description>
+
+  <VSEWW_LegendaryParabellumCannon.label>Пушки парабеллум</VSEWW_LegendaryParabellumCannon.label>
+  <VSEWW_LegendaryParabellumCannon.description>Грузовой контейнер, содержащий 3 12,8cm FlaK 40z HAAP и 300 снарядов.</VSEWW_LegendaryParabellumCannon.description>
+
+
+</LanguageData>

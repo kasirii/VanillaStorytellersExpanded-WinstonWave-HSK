@@ -94,7 +94,7 @@ namespace VSEWW
                     && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat))
                 {
                     factions.Add(f);
-                    Log.Message("faction " + f.def.defName.ToString() + "add");
+                    //Log.Message("faction " + f.def.defName.ToString() + "add");
                 }
                 //Log.Message("Day passed: " + GenDate.DaysPassed.ToString() + " Earliest day to raid " + f.def.earliestRaidDays.ToString() + "  of: " + f.def.defName.ToString());
             }
@@ -846,4 +846,5 @@ namespace VSEWW
             return $"sent:{sent} atTick:{atTick} parms:{parms}";
         }
     }
+
 }

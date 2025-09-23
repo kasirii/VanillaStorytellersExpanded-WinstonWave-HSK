@@ -472,7 +472,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_GoodParabellumTurret</defName>
     <label>Parabellum turret drop</label>
-    <texPath>UI/Rewards/RewardDefault_Good</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
     <description>Cargo pod drops 3 Vickers and 900 303British ammo</description>
     <category>Good</category>
     <items>
@@ -490,7 +490,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_GoodParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
-    <texPath>UI/Rewards/RewardDefault_Good</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
     <description>Cargo pod drops 3 Parabellum 3.7cm cannons and 300 3.7cm shells</description>
     <category>Good</category>
     <items>
@@ -537,4 +537,22 @@
       </li>
     </randomItems>
   </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodRugsDrop</defName>
+    <texPath>UI/Rewards/RewardTextileDrop_Good</texPath>
+    <label>Good Rugs drop</label>
+    <description>Cargo pods 3 random rugs, quality is Good</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>BuildingsRugs</li>
+        </thingCategories>
+        <quality>Good</quality>
+        <count>3</count>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
 </Defs>

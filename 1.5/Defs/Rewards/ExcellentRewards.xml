@@ -433,7 +433,7 @@
   <VSEWW.RewardDef MayRequire="arpomo6.hmc.project">
     <defName>VSEWW_MicroTurret</defName>
     <label>Micro Turret drop</label>
-    <texPath>UI/Rewards/RewardDefault_Excellent</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
     <description>Cargo pod drops 3 Micro Turret.</description>
     <category>Excellent</category>
     <randomItems>
@@ -459,7 +459,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_ExcellentParabellumTurret</defName>
     <label>Parabellum Turret drop</label>
-    <texPath>UI/Rewards/RewardDefault_Excellent</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
     <description>Cargo pod drops 3 Parabellum MG131Z and 900 13.2 ammo</description>
     <category>Excellent</category>
     <items>
@@ -477,7 +477,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_ExcellentParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
-    <texPath>UI/Rewards/RewardDefault_Excellent</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
     <description>Cargo pod drops 3 Parabellum 5cm autocannons and 300 5cm shells</description>
     <category>Excellent</category>
     <items>
@@ -491,4 +491,5 @@
       </li>
     </items>
   </VSEWW.RewardDef>
+
 </Defs>

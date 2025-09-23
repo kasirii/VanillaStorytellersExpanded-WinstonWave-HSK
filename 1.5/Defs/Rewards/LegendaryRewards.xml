@@ -298,7 +298,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_LegendaryParabellumTurret</defName>
     <label>Parabellum turret drop</label>
-    <texPath>UI/Rewards/RewardDefault_Legendary</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
     <description>Cargo pod drops 3 Parabellum 3cm Flak 103/38 AA(Quad) and 900 30mm ammo</description>
     <category>Legendary</category>
     <items>
@@ -316,7 +316,7 @@
   <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
     <defName>VSEWW_LegendaryParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
-    <texPath>UI/Rewards/RewardDefault_Legendary</texPath>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
     <description>Cargo pod drops 3 Parabellum 12,8cm FlaK 40z HAAP and 300 12.8cm shells</description>
     <category>Legendary</category>
     <items>
@@ -330,4 +330,5 @@
       </li>
     </items>
   </VSEWW.RewardDef>
+
 </Defs>

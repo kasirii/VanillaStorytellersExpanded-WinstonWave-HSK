@@ -51,25 +51,29 @@ namespace VSEWW
                 b = Widgets.WindowBGFillColor.b,
                 a = 0.25f
             };
-            // Populate dictionnary
+            RebuildRewardCache();
+        // Manage strategies
+        allOtherStrategies = DefDatabase<RaidStrategyDef>.AllDefsListForReading.ToList();
+            allOtherStrategies.RemoveAll(s => normalStrategies.Contains(s));
+        }
+        internal static void RebuildRewardCache()
+        {
             rewardsPerCat = new Dictionary<RewardCategory, List<RewardDef>>
-            {
-                { RewardCategory.Poor, new List<RewardDef>() },
-                { RewardCategory.Normal, new List<RewardDef>() },
-                { RewardCategory.Good, new List<RewardDef>() },
-                { RewardCategory.Excellent, new List<RewardDef>() },
-                { RewardCategory.Legendary, new List<RewardDef>() }
-            };
+                {
+                    { RewardCategory.Poor, new List<RewardDef>() },
+                    { RewardCategory.Normal, new List<RewardDef>() },
+                    { RewardCategory.Good, new List<RewardDef>() },
+                    { RewardCategory.Excellent, new List<RewardDef>() },
+                    { RewardCategory.Legendary, new List<RewardDef>() }
+                };
 
             var rewards = DefDatabase<RewardDef>.AllDefsListForReading;
-            for (int i = 0; i < rewards.Count; i++)
+            foreach (var reward in rewards)
             {
-                var reward = rewards[i];
+                if (WinstonMod.settings?.rewardDefs?.Contains(reward.defName) == true)
+                    continue;
                 rewardsPerCat[reward.category].Add(reward);
             }
-            // Manage strategies
-            allOtherStrategies = DefDatabase<RaidStrategyDef>.AllDefsListForReading.ToList();
-            allOtherStrategies.RemoveAll(s => normalStrategies.Contains(s));
         }
     }
 }

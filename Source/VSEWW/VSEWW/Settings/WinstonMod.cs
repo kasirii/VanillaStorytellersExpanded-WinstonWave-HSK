@@ -15,7 +15,7 @@ namespace VSEWW
         private string _pointMultiplierBefore;
         private string _pointMultiplierAfter;
 
-        private const float _fullHeight = 610;
+        private const float _fullHeight = 700;
 
         private Vector2 _scrollPosition;
 
@@ -59,7 +59,12 @@ namespace VSEWW
                 {
                     currentTab = 2;
                     WriteSettings();
-                }, currentTab == 2)
+                }, currentTab == 2),
+                new TabRecord("VESWW.RS".Translate(), () =>
+                {
+                    currentTab = 3;
+                    WriteSettings();
+                }, currentTab == 3)
             };
             TabDrawer.DrawTabs(tabRect, tabs);
 
@@ -75,6 +80,58 @@ namespace VSEWW
             {
                 DoModifierSettings(mainRect.ContractedBy(15f));
             }
+            else if (currentTab == 3)
+            {
+                DoRewardSettings(mainRect.ContractedBy(15f));
+            }
+        }
+
+        private void DoRewardSettings(Rect rect)
+        {
+            var rewSettingsList = new Listing_Standard();
+            rewSettingsList.Begin(rect);
+
+            rewSettingsList.Label("VESWW.Rewards".Translate());
+            if (rewSettingsList.ButtonText("VESWW.ARewards".Translate()))
+            {
+                var floatMenuOptions = new List<FloatMenuOption>();
+                if (settings.rewardDefs.NullOrEmpty())
+                    settings.rewardDefs = new List<string>();
+
+                foreach (var item in DefDatabase<RewardDef>.AllDefsListForReading.FindAll(m => !settings.rewardDefs.Contains(m.defName)))
+                {
+                    floatMenuOptions.Add(new FloatMenuOption($"{item.LabelCap}", () =>
+                    {
+                        settings.rewardDefs.Add(item.defName);
+                        settings.rewardSettingsChanged = true;
+                    }));
+                }
+
+                if (floatMenuOptions.Count == 0) floatMenuOptions.Add(new FloatMenuOption("Nothing to add", null));
+                Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
+            }
+            rewSettingsList.Gap(5);
+            if (rewSettingsList.ButtonText("VESWW.RRewards".Translate()))
+            {
+                var floatMenuOptions = new List<FloatMenuOption>();
+                if (!settings.rewardDefs.NullOrEmpty())
+                {
+                    foreach (var defName in settings.rewardDefs)
+                    {
+                        var def = DefDatabase<RewardDef>.GetNamedSilentFail(defName);
+                        string label = def?.LabelCap ?? defName;
+                        floatMenuOptions.Add(new FloatMenuOption(label, () =>
+                        {
+                            settings.rewardDefs.Remove(defName);
+                            settings.rewardSettingsChanged = true;
+                        }));
+                    }
+                }
+
+                if (floatMenuOptions.Count == 0) floatMenuOptions.Add(new FloatMenuOption("Nothing to remove", null));
+                Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
+            }
+            rewSettingsList.End();
         }
 
         private void DoModifierSettings(Rect rect)
@@ -103,9 +160,11 @@ namespace VSEWW
                 var floatMenuOptions = new List<FloatMenuOption>();
                 if (!settings.modifierDefs.NullOrEmpty())
                 {
-                    foreach (var item in settings.modifierDefs)
+                    foreach (var defName in settings.modifierDefs)
                     {
-                        floatMenuOptions.Add(new FloatMenuOption(item, () => settings.modifierDefs.Remove(item)));
+                        var def = DefDatabase<ModifierDef>.GetNamedSilentFail(defName);
+                        string label = def?.LabelCap ?? defName;
+                        floatMenuOptions.Add(new FloatMenuOption(label, () => settings.modifierDefs.Remove(defName)));
                     }
                 }
 
@@ -293,6 +352,12 @@ namespace VSEWW
 
                 winston.waveCounter?.UpdateWindow();
             }
+            if (settings.rewardSettingsChanged)
+            {
+                Startup.RebuildRewardCache();
+                settings.rewardSettingsChanged = false;
+            }
+
             base.WriteSettings();
         }
     }

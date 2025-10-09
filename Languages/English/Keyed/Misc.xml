@@ -64,6 +64,9 @@
   <VESWW.Modifiers>Exclude modifier(s) from waves:</VESWW.Modifiers>
   <VESWW.RModifiers>Remove modifier(s) from excluded</VESWW.RModifiers>
   <VESWW.AModifiers>Exclude modifier(s)</VESWW.AModifiers>
+	<VESWW.Rewards>Exclude reward(s) from waves:</VESWW.Rewards>
+	<VESWW.RRewards>Remove reward(s) from excluded</VESWW.RRewards>
+	<VESWW.ARewards>Exclude reward(s)</VESWW.ARewards>
   <VESWW.ExcludedFaction>Exclude certain faction(s) from waves:</VESWW.ExcludedFaction>
   <VESWW.AddExcludedFaction>Exclude faction</VESWW.AddExcludedFaction>
   <VESWW.RemoveExcludedFaction>Remove faction from excluded</VESWW.RemoveExcludedFaction>
@@ -79,6 +82,7 @@
   <VESWW.GS>General</VESWW.GS>
   <VESWW.VS>Waves</VESWW.VS>
   <VESWW.MS>Modifiers</VESWW.MS>
+	<VESWW.RS>Rewards</VESWW.RS>
   <VESWW.WCS>Wave counter</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Number of days before the first wave arrive.</VESWW.TimeBeforeFirstWaveTip>

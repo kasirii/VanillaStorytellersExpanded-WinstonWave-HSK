@@ -64,6 +64,9 @@
   <VESWW.Modifiers>Исключить модификатор(ы) из волн:</VESWW.Modifiers>
   <VESWW.RModifiers>Удалить модификатор(ы) из исключений</VESWW.RModifiers>
   <VESWW.AModifiers>Исключить модификатор(ы)</VESWW.AModifiers>
+	<VESWW.Rewards>Исключить награду(ы) из волн:</VESWW.Rewards>
+	<VESWW.RRewards>Удалить награду(ы) из исключений</VESWW.RRewards>
+	<VESWW.ARewards>Исключить награду(ы)</VESWW.ARewards>
   <VESWW.ExcludedFaction>Исключить определенные фракцию(и) из волн:</VESWW.ExcludedFaction>
   <VESWW.AddExcludedFaction>Исключить фракцию(и)</VESWW.AddExcludedFaction>
   <VESWW.RemoveExcludedFaction>Удалить фракцию из исключений</VESWW.RemoveExcludedFaction>
@@ -79,6 +82,7 @@
   <VESWW.GS>Общее</VESWW.GS>
   <VESWW.VS>Волны</VESWW.VS>
   <VESWW.MS>Модификаторы</VESWW.MS>
+	<VESWW.RS>Награды</VESWW.RS>
   <VESWW.WCS>Счетчик волн</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Дней до прибытия первой волны.</VESWW.TimeBeforeFirstWaveTip>

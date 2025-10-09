@@ -56,6 +56,9 @@ namespace VSEWW
                 rewardPool.RemoveAll(r => r.rewardHonor!=0);
             if (!MechanitorUtility.AnyMechanitorInPlayerFaction())
                 rewardPool.RemoveAll(r => r.needsMechanitor);
+            if (WinstonMod.settings?.rewardDefs != null && WinstonMod.settings.rewardDefs.Count > 0)
+                rewardPool.RemoveAll(r => WinstonMod.settings.rewardDefs.Contains(r.defName));
+
         }
 
         public override Vector2 InitialSize => new Vector2(850f, 500f);

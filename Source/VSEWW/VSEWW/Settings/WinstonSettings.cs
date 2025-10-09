@@ -21,9 +21,11 @@ namespace VSEWW
         public bool hideToggleDraggable = false;
         public bool showPawnList = true;
         public bool dropSlagChunk = true;
-        
+        public bool rewardSettingsChanged = false;
+
 
         public List<string> modifierDefs = new List<string>();
+        public List<string> rewardDefs = new List<string>();
         public List<string> excludedFactionDefs = new List<string>();
         public List<string> excludedStrategyDefs = new List<string>();
 
@@ -47,6 +49,7 @@ namespace VSEWW
             Scribe_Values.Look(ref showPawnList, "showPawnList", true);
             Scribe_Values.Look(ref dropSlagChunk, "dropSlagChunk", true);
             Scribe_Collections.Look(ref modifierDefs, "modifierDefs", LookMode.Value, new List<string>());
+            Scribe_Collections.Look(ref rewardDefs, "rewardDefs", LookMode.Value, new List<string>());
             Scribe_Collections.Look(ref excludedFactionDefs, "excludedFactionDefs", LookMode.Value, new List<string>());
             Scribe_Collections.Look(ref excludedStrategyDefs, "excludedStrategyDefs", LookMode.Value, new List<string>());
         }

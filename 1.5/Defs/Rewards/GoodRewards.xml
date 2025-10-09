@@ -296,7 +296,7 @@
     </waveModifier>
   </VSEWW.RewardDef>
 
-  <VSEWW.RewardDef>
+  <!--<VSEWW.RewardDef>
     <defName>VSEWW_Allies</defName>
     <texPath>UI/Rewards/RewardAllies_Good</texPath>
     <label>Allies!</label>
@@ -306,7 +306,7 @@
     <waveModifier>
       <allies>true</allies>
     </waveModifier>
-  </VSEWW.RewardDef>
+  </VSEWW.RewardDef>-->
 
   <VSEWW.RewardDef>
     <defName>VSEWW_GoodArchotechArtifactsDrop</defName>
@@ -455,16 +455,16 @@
     <defName>VSEWW_GoodTurretDrop</defName>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
     <label>Turret drop</label>
-    <description>Cargo pod drops 3 M240B and 900 7.62 ammo</description>
+    <description>Cargo pod drops 1 M240B and 300 7.62 ammo</description>
     <category>Good</category>
     <items>
       <li>
         <thing>Turret_M240B</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_762x51mmNATO_FMJ</thing>
-        <count>900</count>
+        <count>300</count>
       </li>
     </items>
   </VSEWW.RewardDef>
@@ -473,16 +473,16 @@
     <defName>VSEWW_GoodParabellumTurret</defName>
     <label>Parabellum turret drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
-    <description>Cargo pod drops 3 Vickers and 900 303British ammo</description>
+    <description>Cargo pod drops 1 Vickers and 300 303British ammo</description>
     <category>Good</category>
     <items>
       <li>
         <thing>Turret_Vickers</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_303British_FMJ</thing>
-        <count>900</count>
+        <count>300</count>
       </li>
     </items>
   </VSEWW.RewardDef>
@@ -491,16 +491,16 @@
     <defName>VSEWW_GoodParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
-    <description>Cargo pod drops 3 Parabellum 3.7cm cannons and 300 3.7cm shells</description>
+    <description>Cargo pod drops 1 Parabellum 3.7cm cannons and 100 3.7cm shells</description>
     <category>Good</category>
     <items>
       <li>
         <thing>Turret_PaK36ATG</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_37mmCannonShell_HE</thing>
-        <count>300</count>
+        <count>100</count>
       </li>
     </items>
   </VSEWW.RewardDef>

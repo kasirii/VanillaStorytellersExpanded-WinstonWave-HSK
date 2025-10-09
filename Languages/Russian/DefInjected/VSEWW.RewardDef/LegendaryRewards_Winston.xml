@@ -32,13 +32,13 @@
   <VSEWW_MassHeal.description>Мгновенное исцеляет любые раны всех персонажей под контролем игрока.</VSEWW_MassHeal.description>
 
   <VSEWW_LegendaryTurretDrop.label>Туррели</VSEWW_LegendaryTurretDrop.label>
-  <VSEWW_LegendaryTurretDrop.description>Грузовой контейнер, содержащий 3 Мстителя и 900 боеприпасов.</VSEWW_LegendaryTurretDrop.description>
+  <VSEWW_LegendaryTurretDrop.description>Грузовой контейнер, содержащий 1 автопушку Мститель и 300 боеприпасов.</VSEWW_LegendaryTurretDrop.description>
 
   <VSEWW_LegendaryParabellumTurret.label>Туррели парабеллум</VSEWW_LegendaryParabellumTurret.label>
-  <VSEWW_LegendaryParabellumTurret.description>Грузовой контейнер, содержащий 3 3cm Flak 103/38 AA(Quad) и 900 боеприпасов.</VSEWW_LegendaryParabellumTurret.description>
+  <VSEWW_LegendaryParabellumTurret.description>Грузовой контейнер, содержащий 1 3cm Flak 103/38 AA(Quad) и 300 боеприпасов.</VSEWW_LegendaryParabellumTurret.description>
 
   <VSEWW_LegendaryParabellumCannon.label>Пушки парабеллум</VSEWW_LegendaryParabellumCannon.label>
-  <VSEWW_LegendaryParabellumCannon.description>Грузовой контейнер, содержащий 3 12,8cm FlaK 40z HAAP и 300 снарядов.</VSEWW_LegendaryParabellumCannon.description>
+  <VSEWW_LegendaryParabellumCannon.description>Грузовой контейнер, содержащий 1 12,8cm FlaK 40z HAAP и 100 снарядов.</VSEWW_LegendaryParabellumCannon.description>
 
 
 </LanguageData>

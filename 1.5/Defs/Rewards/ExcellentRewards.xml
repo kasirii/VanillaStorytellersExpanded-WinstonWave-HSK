@@ -416,7 +416,7 @@
     <defName>VSEWW_ExcellentturretDrop</defName>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
     <label>Turret drop</label>
-    <description>Cargo pod drops 3 KPV and 900 14.5mm ammo</description>
+    <description>Cargo pod drops 1 KPV and 300 14.5mm ammo</description>
     <category>Excellent</category>
     <items>
       <li>
@@ -460,7 +460,7 @@
     <defName>VSEWW_ExcellentParabellumTurret</defName>
     <label>Parabellum Turret drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
-    <description>Cargo pod drops 3 Parabellum MG131Z and 900 13.2 ammo</description>
+    <description>Cargo pod drops 1 Parabellum MG131Z and 400 13.2 ammo</description>
     <category>Excellent</category>
     <items>
       <li>
@@ -478,7 +478,7 @@
     <defName>VSEWW_ExcellentParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
-    <description>Cargo pod drops 3 Parabellum 5cm autocannons and 300 5cm shells</description>
+    <description>Cargo pod drops 1 Parabellum 5cm autocannons and 100 5cm shells</description>
     <category>Excellent</category>
     <items>
       <li>

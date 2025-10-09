@@ -281,7 +281,7 @@
     <defName>VSEWW_LegendaryTurretDrop</defName>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
     <label>Turret drop</label>
-    <description>Cargo pod drops 3 Avenger and 900 30mm ammo</description>
+    <description>Cargo pod drops 1 Avenger and 300 30mm ammo</description>
     <category>Legendary</category>
     <items>
       <li>
@@ -299,7 +299,7 @@
     <defName>VSEWW_LegendaryParabellumTurret</defName>
     <label>Parabellum turret drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
-    <description>Cargo pod drops 3 Parabellum 3cm Flak 103/38 AA(Quad) and 900 30mm ammo</description>
+    <description>Cargo pod drops 1 Parabellum 3cm Flak 103/38 AA(Quad) and 300 30mm ammo</description>
     <category>Legendary</category>
     <items>
       <li>
@@ -317,7 +317,7 @@
     <defName>VSEWW_LegendaryParabellumCannon</defName>
     <label>Parabellum cannon drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Legendary</texPath>
-    <description>Cargo pod drops 3 Parabellum 12,8cm FlaK 40z HAAP and 300 12.8cm shells</description>
+    <description>Cargo pod drops 1 Parabellum 12,8cm FlaK 40z HAAP and 100 12.8cm shells</description>
     <category>Legendary</category>
     <items>
       <li>

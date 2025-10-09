@@ -74,13 +74,13 @@
   <VSEWW_GoodAmmoDrop.description>Грузовой контейнер, содержащий 1280 ед. случайных боеприпасов и 50 гранат.</VSEWW_GoodAmmoDrop.description>
 
   <VSEWW_GoodTurretDrop.label>Туррели</VSEWW_GoodTurretDrop.label>
-  <VSEWW_GoodTurretDrop.description>Грузовой контейнер, содержащий 3 M240B и 900 боеприпасов.</VSEWW_GoodTurretDrop.description>
+  <VSEWW_GoodTurretDrop.description>Грузовой контейнер, содержащий 1 M240B и 300 боеприпасов.</VSEWW_GoodTurretDrop.description>
 
   <VSEWW_GoodParabellumTurret.label>Туррели парабеллум</VSEWW_GoodParabellumTurret.label>
-  <VSEWW_GoodParabellumTurret.description>Грузовой контейнер, содержащий 3 Викерса и 900 боеприпасов.</VSEWW_GoodParabellumTurret.description>
+  <VSEWW_GoodParabellumTurret.description>Грузовой контейнер, содержащий 1 пулемет Викерса и 300 боеприпасов.</VSEWW_GoodParabellumTurret.description>
 
   <VSEWW_GoodParabellumCannon.label>Пушки парабеллум</VSEWW_GoodParabellumCannon.label>
-  <VSEWW_GoodParabellumCannon.description>Грузовой контейнер, содержащий 3 3.7cm пушки и 300 снарядов.</VSEWW_GoodParabellumCannon.description>
+  <VSEWW_GoodParabellumCannon.description>Грузовой контейнер, содержащий 1 3.7cm пушку и 100 снарядов.</VSEWW_GoodParabellumCannon.description>
 
   <VSEWW_GoodRugsDrop.label>Ковры</VSEWW_GoodRugsDrop.label>
   <VSEWW_GoodRugsDrop.description>Грузовой контейнер, содержащий 3 хороших ковра.</VSEWW_GoodRugsDrop.description>

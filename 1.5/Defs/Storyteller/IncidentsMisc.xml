@@ -23,8 +23,8 @@
     <gameCondition>VESWW_OrbitalBombardement</gameCondition>
     <baseChance>0</baseChance>
     <durationDays>
-      <min>1</min>
-      <max>1</max>
+      <min>.1</min>
+      <max>.5</max>
     </durationDays>
   </IncidentDef>
   <!-- Flashstorm -->

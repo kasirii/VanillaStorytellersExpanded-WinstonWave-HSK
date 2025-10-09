@@ -29,6 +29,8 @@ namespace VSEWW
 
         public List<ThingDef> allowedWeaponDef;
 
+        public List<string> allowedWeaponTags;
+
         // Apparels choice
         public List<ThingDef> neededApparelDef;
 

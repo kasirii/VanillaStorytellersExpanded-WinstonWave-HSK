@@ -163,9 +163,14 @@
     <allowedWeaponCategory>
       <li>SRifles</li>
     </allowedWeaponCategory>
+	  <allowedWeaponTags>
+	    <li>SNIP1</li>
+	    <li>SNIP2</li>
+	  </allowedWeaponTags>
     <incompatibleWith>
       <li>VSEWW_OnlyMelee</li>
       <li>VSEWW_ChargeForEveryone</li>
+		<li>VSEWW_StrategicApproach</li>
     </incompatibleWith>
   </VSEWW.ModifierDef>
 
@@ -174,29 +179,22 @@
     <texPath>UI/Modifiers/Modifier_MeleeOnly</texPath>
     <label>Melee only!</label>
     <description>All pawns get a melee weapon and a shield belt.</description>
-    <allowedWeaponDef>
-      <li>MeleeWeapon_Dagger</li>
-      <li>MeleeWeapon_Machete</li>
-      <li>MeleeWeapon_Gladius</li>
-      <li>MeleeWeapon_LongSword</li>
-      <li>MeleeWeapon_GreatSword</li>
-      <li>MeleeWeapon_Morningstar</li>
-      <li>MeleeWeapon_Scimitar</li>
-      <li>MeleeWeapon_Glaive</li>
-      <li>MeleeWeapon_Partisan</li>
-      <li>NorbalMeleeWeapon_ShortSwordtwo</li>
-      <li>NorbalMeleeWeapon_ShortSword</li>
-      <li>NorbalMeleeWeapon_Ax</li>
-      <li>NorbalMeleeWeapon_Bigax</li>
-      <li>MeleeWeapon_Axe</li>
-      <li>MeleeWeapon_Warhammer</li>
-    </allowedWeaponDef>
+	  <allowedWeaponCategory>
+		  <li>SharpMelee</li>
+		  <li>BluntMelee</li>
+	  </allowedWeaponCategory>
+	  <allowedWeaponTags>
+		  <li>MedievalMelee</li>
+		  <li>MidworldMelee</li>
+		  <li>NeolithicMeleeBasic2H</li>
+	  </allowedWeaponTags>
     <neededApparelDef>
       <li>Apparel_ShieldBelt</li>
     </neededApparelDef>
     <incompatibleWith>
       <li>VSEWW_SniperForEveryone</li>
       <li>VSEWW_ChargeForEveryone</li>
+		<li>VSEWW_StrategicApproach</li>
     </incompatibleWith>
   </VSEWW.ModifierDef>
 
@@ -205,12 +203,18 @@
     <texPath>UI/Modifiers/Modifier_ChargeWeaponsForEveryone</texPath>
     <label>Charge weapons for everyone!</label>
     <description>All enemies have a biocoded energy weapon.</description>
-    <allowedWeaponDef>
-      <li>Gun_PlasmaPistol</li>
-    </allowedWeaponDef>
+	  <allowedWeaponCategory>
+		  <li>Futuristic</li>
+	  </allowedWeaponCategory>
+	  <allowedWeaponTags>
+		  <li>ADR1</li>
+		  <li>ADP1</li>
+		  <li>ASN1</li>
+	  </allowedWeaponTags>
     <incompatibleWith>
       <li>VSEWW_SniperForEveryone</li>
       <li>VSEWW_OnlyMelee</li>
+		<li>VSEWW_StrategicApproach</li>
     </incompatibleWith>
   </VSEWW.ModifierDef> 
 
@@ -225,6 +229,14 @@
         <li>Glaunchers</li>
         <li>SRifles</li>
     </allowedWeaponCategory>
+	  <allowedWeaponTags>
+		  <li>MG1</li>
+		  <li>MG2</li>
+		  <li>RKT1</li>
+		  <li>RKT2</li>
+		  <li>SNIP1</li>
+		  <li>SNIP2</li>
+	  </allowedWeaponTags>
     <incompatibleWith>
       <li>VSEWW_SniperForEveryone</li>
       <li>VSEWW_ChargeForEveryone</li>

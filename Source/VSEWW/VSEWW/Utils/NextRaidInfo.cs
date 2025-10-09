@@ -94,9 +94,7 @@ namespace VSEWW
                     && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat))
                 {
                     factions.Add(f);
-                    //Log.Message("faction " + f.def.defName.ToString() + "add");
                 }
-                //Log.Message("Day passed: " + GenDate.DaysPassed.ToString() + " Earliest day to raid " + f.def.earliestRaidDays.ToString() + "  of: " + f.def.defName.ToString());
             }
 
             if (factions.Count == 0)
@@ -398,8 +396,16 @@ namespace VSEWW
                             // Remove equipements
                             pawn.equipment.DestroyAllEquipment();
                             // Generate new weapon matching defs
-                            var newWeaponDef = DefDatabase<ThingDef>.AllDefsListForReading.FindAll(t => modifier.allowedWeaponCategory.Any(c => t.IsWithinCategory(c))).RandomElement();
-                            var newWeapon = ThingStuffPair.AllWith(a => a.IsWeapon && a == newWeaponDef).RandomElement();
+                            var filteredWeapons = DefDatabase<ThingDef>.AllDefsListForReading
+                                .FindAll(t =>
+                                    modifier.allowedWeaponCategory.Any(c => t.IsWithinCategory(c)) &&
+                                    (modifier.allowedWeaponTags.NullOrEmpty() ||
+                                     (t.weaponTags != null && t.weaponTags.Any(tag => modifier.allowedWeaponTags.Contains(tag))))
+                                );
+
+                            var newWeaponDef = filteredWeapons.RandomElement();
+                            var newWeapon = ThingStuffPair.AllWith(a => a == newWeaponDef && a.IsWeapon).RandomElement();
+
                             // Add it to the pawn equipement
                             if (newWeapon != null)
                             {
@@ -449,117 +455,104 @@ namespace VSEWW
         /// </summary>
         internal void RegenerateInventory(Pawn pawn, ThingDef newWeaponDef)
         {
-            if (Startup.CEActive)
+            if (!Startup.CEActive) return;
+
+            // Clear inventory and generate standard items
+            pawn.inventory.DestroyAll();
+            PawnInventoryGenerator.GenerateInventoryFor(pawn, new PawnGenerationRequest(pawn.kindDef));
+
+            // Get current weapon or fallback to newWeaponDef
+            var weapon = pawn.equipment?.Primary as ThingWithComps;
+            var weaponDef = weapon?.def ?? newWeaponDef;
+            if (weaponDef == null || !weaponDef.IsRangedWeapon) return;
+
+            // Get the CombatExtended ammo component
+            var comp = weapon?.AllComps?.FirstOrDefault(c => c?.GetType().FullName == "CombatExtended.CompAmmoUser");
+            if (comp == null) return;
+
+            // Helper function to get field or property value
+            object GetMember(object obj, string fieldName, string propName)
             {
-                pawn.inventory.DestroyAll();
-                PawnInventoryGenerator.GenerateInventoryFor(pawn, new PawnGenerationRequest(pawn.kindDef));
+                var t = obj.GetType();
+                return t.GetField(fieldName)?.GetValue(obj) ?? t.GetProperty(propName)?.GetValue(obj);
+            }
 
-                var weapon = pawn.equipment?.Primary as ThingWithComps;
-                var weaponDef = weapon?.def ?? newWeaponDef;
-                if (weaponDef == null || !weaponDef.IsRangedWeapon) return;
+            object props = comp.GetType().GetProperty("Props")?.GetValue(comp);
+            if (props == null) return;
 
-                var comp = weapon?.AllComps?.FirstOrDefault(c => c?.GetType().FullName == "CombatExtended.CompAmmoUser");
-                if (comp == null) return;
+            // Get magazine size (default 1)
+            int magazineSize = (GetMember(props, "magazineSize", "magazineSize") as int?) ?? 1;
 
-                // Props (CompProperties_AmmoUser)
-                var tComp = comp.GetType();
-                var props = tComp.GetProperty("Props")?.GetValue(comp);
-                if (props == null) return;
+            // Get ammo set
+            var ammoSet = GetMember(props, "ammoSet", "ammoSet");
+            if (ammoSet == null) return;
 
-                // magazineSize (int) и ammoSet (AmmoSetDef)
-                var tProps = props.GetType();
-                int magazineSize = 1;
-                var magField = tProps.GetField("magazineSize");
-                if (magField != null && magField.GetValue(props) is int m && m > 0) magazineSize = m;
-
-                var magProp = tProps.GetProperty("magazineSize");
-                if (magazineSize <= 1 && magProp != null && magProp.GetValue(props) is int mp && mp > 0) magazineSize = mp;
-
-                var ammoSet = tProps.GetField("ammoSet")?.GetValue(props) ?? tProps.GetProperty("ammoSet")?.GetValue(props);
-                if (ammoSet == null) return;
-
-                ThingDef ammoDef = null;
-
-                var tAmmoSet = ammoSet.GetType();
-                ammoDef = tAmmoSet.GetField("defaultAmmo")?.GetValue(ammoSet) as ThingDef
-                       ?? tAmmoSet.GetProperty("defaultAmmo")?.GetValue(ammoSet) as ThingDef;
-
-                if (ammoDef == null)
+            // Determine ammoDef (default ammo or most common ammo)
+            ThingDef ammoDef = GetMember(ammoSet, "defaultAmmo", "defaultAmmo") as ThingDef;
+            if (ammoDef == null)
+            {
+                var ammoTypes = GetMember(ammoSet, "ammoTypes", "ammoTypes") as System.Collections.IEnumerable;
+                if (ammoTypes != null)
                 {
-                    var ammoTypes = tAmmoSet.GetField("ammoTypes")?.GetValue(ammoSet) as System.Collections.IEnumerable
-                                 ?? tAmmoSet.GetProperty("ammoTypes")?.GetValue(ammoSet) as System.Collections.IEnumerable;
-
-                    if (ammoTypes != null)
+                    float best = float.NegativeInfinity;
+                    foreach (var link in ammoTypes)
                     {
-                        float best = float.NegativeInfinity;
-                        foreach (var link in ammoTypes)
-                        {
-                            var tLink = link.GetType();
-                            var linkAmmo = tLink.GetField("ammo")?.GetValue(link) as ThingDef
-                                        ?? tLink.GetProperty("ammo")?.GetValue(link) as ThingDef;
-                            float common = 0f;
-                            var commonObj = tLink.GetField("commonality")?.GetValue(link)
-                                         ?? tLink.GetProperty("commonality")?.GetValue(link);
-                            if (commonObj is float f) common = f;
-                            if (linkAmmo != null && common > best) { best = common; ammoDef = linkAmmo; }
-                        }
+                        var linkAmmo = GetMember(link, "ammo", "ammo") as ThingDef;
+                        float common = (GetMember(link, "commonality", "commonality") as float?) ?? 0f;
+                        if (linkAmmo != null && common > best) { best = common; ammoDef = linkAmmo; }
                     }
                 }
+            }
+            if (ammoDef == null) return;
 
-                if (ammoDef == null) return;
+            // Calculate how many bullets to add
+            int want = magazineSize > 1 ? Math.Min(magazineSize * 6, 200) : 30;
+            if (weaponDef.weaponTags.Contains("Glaunchers")) want = 5;
 
-                int want = (magazineSize > 1) ? Math.Min(magazineSize * 6, 200) : 30;
-                if (weaponDef.weaponTags.Contains("Glaunchers")) want = 5;
+            var owner = pawn.inventory.GetDirectlyHeldThings();
+            int safety = 6; // prevent infinite loops
+            while (want > 0 && safety-- > 0)
+            {
+                int take = Math.Min(want, ammoDef.stackLimit);
+                var ammo = ThingMaker.MakeThing(ammoDef);
+                ammo.stackCount = take;
 
-                var owner = pawn.inventory.GetDirectlyHeldThings();
-                int safety = 6; 
-                while (want > 0 && safety-- > 0)
+                if (!owner.TryAdd(ammo))
                 {
-                    int take = Math.Min(want, ammoDef.stackLimit);
-                    var ammo = ThingMaker.MakeThing(ammoDef);
+                    take = Math.Max(1, take);
                     ammo.stackCount = take;
-
-                    if (!owner.TryAdd(ammo))
-                    {
-                        take = Math.Max(1, take);
-                        if (take == ammo.stackCount) break;
-                        ammo.stackCount = take;
-                        if (!owner.TryAdd(ammo)) break;
-                    }
-
-                    want -= take;
+                    if (!owner.TryAdd(ammo)) break;
                 }
 
-                var setAmmoProp = tComp.GetProperty("CurrentAmmo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                    ?? tComp.GetProperty("SelectedAmmo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                if (setAmmoProp != null && setAmmoProp.CanWrite) setAmmoProp.SetValue(comp, ammoDef);
+                want -= take;
+            }
+
+            // Helper function to set a property or field
+            void SetMember(object target, string prop1, string prop2, string field1, string field2, object value)
+            {
+                var t = target.GetType();
+                var prop = t.GetProperty(prop1, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                        ?? t.GetProperty(prop2, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (prop != null && prop.CanWrite) prop.SetValue(target, value);
                 else
                 {
-                    var curAmmoField = tComp.GetField("currentAmmo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                                        ?? tComp.GetField("curAmmo", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                    curAmmoField?.SetValue(comp, ammoDef);
+                    var field = t.GetField(field1, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                             ?? t.GetField(field2, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                    field?.SetValue(target, value);
                 }
+            }
 
-                var setMagProp = tComp.GetProperty("CurMagCount", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                                ?? tComp.GetProperty("MagazineCount", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                if (setMagProp != null && setMagProp.CanWrite) setMagProp.SetValue(comp, magazineSize);
-                else
-                {
-                    var magCountField = tComp.GetField("curMagCount", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                                        ?? tComp.GetField("magCount", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                    magCountField?.SetValue(comp, magazineSize);
-                }
+            // Set current ammo and magazine count
+            SetMember(comp, "CurrentAmmo", "SelectedAmmo", "currentAmmo", "curAmmo", ammoDef);
+            SetMember(comp, "CurMagCount", "MagazineCount", "curMagCount", "magCount", magazineSize);
 
-
-                if (newWeaponDef.IsRangedWeapon)
-                {
-                    // Remove shield(s)
-                    var appToRemove = pawn.apparel.WornApparel.FindAll(a => a.def.thingCategories != null && a.def.thingCategories.Any(c => c.defName == "Shields"));
-                    for (int i = 0; i < appToRemove.Count; i++)
-                    {
-                        pawn.apparel.Remove(appToRemove[i]);
-                    }
-                }
+            // Remove shields if the weapon is ranged
+            if (weaponDef.IsRangedWeapon)
+            {
+                var shields = pawn.apparel.WornApparel
+                    .Where(a => a.def.thingCategories?.Any(c => c.defName == "Shields") == true)
+                    .ToList();
+                foreach (var shield in shields) pawn.apparel.Remove(shield);
             }
         }
 

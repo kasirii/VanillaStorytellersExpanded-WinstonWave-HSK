@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Linq;
 using System.Reflection;
 using Verse;
@@ -550,7 +551,7 @@ namespace VSEWW
             if (weaponDef.IsRangedWeapon)
             {
                 var shields = pawn.apparel.WornApparel
-                    .Where(a => a.def.thingCategories?.Any(c => c.defName == "Shields") == true)
+                    .Where(a => a.def.thingCategories?.Any(c => Regex.IsMatch(c.defName, @"(?i)\bshield(s|cat)?\b")) == true)
                     .ToList();
                 foreach (var shield in shields) pawn.apparel.Remove(shield);
             }

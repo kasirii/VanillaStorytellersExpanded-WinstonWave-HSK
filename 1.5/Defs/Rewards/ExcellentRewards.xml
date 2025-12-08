@@ -421,11 +421,11 @@
     <items>
       <li>
         <thing>Turret_KPV</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_145x114mm_FMJ</thing>
-        <count>900</count>
+        <count>300</count>
       </li>
     </items>
   </VSEWW.RewardDef>
@@ -465,11 +465,11 @@
     <items>
       <li>
         <thing>Turret_MG131Z</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_TuF_AP</thing>
-        <count>900</count>
+        <count>300</count>
       </li>
     </items>
   </VSEWW.RewardDef>
@@ -483,11 +483,11 @@
     <items>
       <li>
         <thing>Turret_Flak41AA</thing>
-        <count>3</count>
+        <count>1</count>
       </li>
       <li>
         <thing>Ammo_50mmCannonShell_HE</thing>
-        <count>300</count>
+        <count>100</count>
       </li>
     </items>
   </VSEWW.RewardDef>

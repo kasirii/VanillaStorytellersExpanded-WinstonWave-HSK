@@ -460,7 +460,7 @@
     <defName>VSEWW_ExcellentParabellumTurret</defName>
     <label>Parabellum Turret drop</label>
     <texPath>UI/Rewards/RewardMiniTurretDrop_Excellent</texPath>
-    <description>Cargo pod drops 1 Parabellum MG131Z and 400 13.2 ammo</description>
+    <description>Cargo pod drops 1 Parabellum MG131Z and 300 13.2 ammo</description>
     <category>Excellent</category>
     <items>
       <li>

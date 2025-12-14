@@ -140,7 +140,7 @@ namespace VSEWW
             }
         }
 
-        [DebugAction("VES Winston Wave", "Raid pawns show", false, false, actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        /*[DebugAction("VES Winston Wave", "Raid pawns show", false, false, actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         public static void RaidPawnsShow()
         {
             var mapComp = Find.CurrentMap.GetComponent<MapComponent_Winston>();
@@ -155,6 +155,6 @@ namespace VSEWW
                     }
                 }
             }
-        }
+        }*/
     }
 }

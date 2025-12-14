@@ -19,6 +19,7 @@ namespace VSEWW
         private float modifierChance = 0;
         public bool nextRaidSendAllies = false;
         public float nextRaidMultiplyPoints = 1f;
+        public int waveDelay = 0;
 
         public IntVec3 dropSpot = IntVec3.Invalid;
 
@@ -40,18 +41,34 @@ namespace VSEWW
                 if (preNewVersion)
                 {
                     preNewVersion = false;
+                    Log.Warning("[VSEWW] pre new version");
                     return true;
                 }
 
-                return nextRaidInfo == null || nextRaidInfo.parms.raidStrategy == null || nextRaidInfo.parms.faction == null || nextRaidInfo.totalPawnsBefore == 0;
-            }
-        }
+                if (nextRaidInfo == null)
+                {
+                    Log.Warning("[VSEWW] nextRaidInfo == null");
+                    return true;
+                }
 
-        private bool ShouldSendNextWave
-        {
-            get
-            {
-                return nextRaidInfo.RaidOver() || (nextRaidInfo.sent && Find.TickManager.TicksGame - nextRaidInfo.sentAt >= WinstonMod.settings.timeToDefeatWave * GenDate.TicksPerDay);
+                if (nextRaidInfo.parms.raidStrategy == null)
+                {
+                    Log.Warning("[VSEWW] raidStrategy == null");
+                    return true;
+                }
+
+                if (nextRaidInfo.parms.faction == null)
+                {
+                    Log.Warning("[VSEWW] faction == null");
+                    return true;
+                }
+
+                if (nextRaidInfo.totalPawnsBefore == 0)
+                {
+                    Log.Warning("[VSEWW] totalPawnsBefore == 0");
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -64,6 +81,7 @@ namespace VSEWW
             Scribe_Values.Look(ref modifierChance, "modifierChance");
             Scribe_Values.Look(ref nextRaidSendAllies, "nextRaidSendAllies");
             Scribe_Values.Look(ref nextRaidMultiplyPoints, "nextRaidMultiplyPoints");
+            Scribe_Values.Look(ref waveDelay, "waveDelay");          
             Scribe_Values.Look(ref tickUntilStatCheck, "tickUntilStatCheck", 0);
             Scribe_Values.Look(ref counterDraggable, "counterDraggable");
             Scribe_Values.Look(ref counterPos, "counterPos");
@@ -120,7 +138,13 @@ namespace VSEWW
                     {
                         StartRaid(ticksGame);
                     }
-                    else if (ShouldSendNextWave)
+                    else if (nextRaidInfo.RaidOver())
+                    {
+                        // Show rewards window
+                        Find.WindowStack.Add(new Window_ChooseReward(currentWave, FourthRewardChance(false), map));
+                        
+                    }
+                    else if (nextRaidInfo.sent && Find.TickManager.TicksGame - nextRaidInfo.sentAt >= WinstonMod.settings.timeToDefeatWave * GenDate.TicksPerDay)
                     {
                         PrepareNextWave();
                     }
@@ -181,9 +205,6 @@ namespace VSEWW
         /// </summary>
         internal void PrepareNextWave(bool sendReward = true)
         {
-            // Show rewards window
-            if (sendReward)
-                Find.WindowStack.Add(new Window_ChooseReward(currentWave, FourthRewardChance(false), map));
             // Prepare next wave
             currentWave++;
             nextRaidInfo.StopIncidentModifiers();
@@ -200,6 +221,7 @@ namespace VSEWW
         {
             var nextRaidInfo = new NextRaidInfo();
             nextRaidInfo.Init(currentWave, GetNextWavePoint(), map);
+            nextRaidInfo.atTick += waveDelay * 60000;
             waveCounter?.UpdateWindow();
 
             return nextRaidInfo;
@@ -232,6 +254,8 @@ namespace VSEWW
         {
             // Send raid
             nextRaidInfo.SendRaid(map, ticks);
+            if (waveDelay != 0)
+                waveDelay = 0;
             waveCounter?.UpdateWindow();
             // Send allies if necessary
             if (nextRaidSendAllies)

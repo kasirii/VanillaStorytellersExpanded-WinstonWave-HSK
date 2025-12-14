@@ -106,8 +106,12 @@ namespace VSEWW
                     mapComp.nextRaidMultiplyPoints = reward.waveModifier.weakenBy;
                 if (reward.waveModifier.allies)
                     mapComp.nextRaidSendAllies = true;
-
-                mapComp.nextRaidInfo.atTick += reward.waveModifier.delayBy * 60000;
+                if (reward.waveModifier.delayBy != 0)
+                {
+                    mapComp.waveDelay += reward.waveModifier.delayBy;
+                    if (mapComp.nextRaidInfo.atTick < Find.TickManager.TicksGame + reward.waveModifier.delayBy * 60000)
+                        mapComp.nextRaidInfo.atTick += reward.waveModifier.delayBy * 60000;
+                }
             }
 
             var thingsToSend = new List<Thing>();
@@ -257,7 +261,6 @@ namespace VSEWW
                 var pawnChoices = DefDatabase<PawnKindDef>.AllDefsListForReading.FindAll(p => p.RaceProps.intelligence == pr.intelligence && p.race.tradeTags?.Contains("NonContractable")!=true);
                 if (pr.tradeTag != "") pawnChoices.RemoveAll(p => p.race.tradeTags?.Contains(pr.tradeTag) != true);
                 if (pr.excludeInsectoid) pawnChoices.RemoveAll(p => p.RaceProps.Insect);
-                
 
                 bool skipMin = false;
                 if (pr.minCombatPower > 0 && pr.maxCombatPower > 0)
@@ -266,7 +269,8 @@ namespace VSEWW
                 if (skipMin && pr.minCombatPower > 0) pawnChoices.RemoveAll(p => p.combatPower < pr.minCombatPower);
                 if (pr.maxCombatPower > 0) pawnChoices.RemoveAll(p => p.combatPower > pr.maxCombatPower);
 
-                //pawnChoices.RemoveAll(p => p.RaceProps.IsAnomalyEntity || p.defaultFactionDef == FactionDefOf.Entities || p.race == InternalDefOf.CreepJoiner);
+                pawnChoices.RemoveAll(p => p.defaultFactionType == FactionDefOf.Entities);
+                pawnChoices.RemoveAll(p => p.RaceProps.IsAnomalyEntity || p.race == InternalDefOf.CreepJoiner);
 
 
                 for (int i = 0; i < pr.count; i++)

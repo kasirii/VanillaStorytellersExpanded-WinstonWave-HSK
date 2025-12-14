@@ -484,49 +484,32 @@ namespace VSEWW
             // Get magazine size (default 1)
             int magazineSize = (GetMember(props, "magazineSize", "magazineSize") as int?) ?? 1;
 
-            // Get ammo set
+            // Get ammo 
             var ammoSet = GetMember(props, "ammoSet", "ammoSet");
             if (ammoSet == null) return;
-
-            // Determine ammoDef (default ammo or most common ammo)
-            ThingDef ammoDef = GetMember(ammoSet, "defaultAmmo", "defaultAmmo") as ThingDef;
-            if (ammoDef == null)
+            var ammoTypes = GetMember(ammoSet, "ammoTypes", "ammoTypes") as System.Collections.IEnumerable;
+            if (ammoTypes == null) return;
+            List <ThingDef> ammoDefs = new List <ThingDef>();
+            foreach (var link in ammoTypes)
             {
-                var ammoTypes = GetMember(ammoSet, "ammoTypes", "ammoTypes") as System.Collections.IEnumerable;
-                if (ammoTypes != null)
-                {
-                    float best = float.NegativeInfinity;
-                    foreach (var link in ammoTypes)
-                    {
-                        var linkAmmo = GetMember(link, "ammo", "ammo") as ThingDef;
-                        float common = (GetMember(link, "commonality", "commonality") as float?) ?? 0f;
-                        if (linkAmmo != null && common > best) { best = common; ammoDef = linkAmmo; }
-                    }
-                }
+                var linkDef = GetMember(link, "ammo", "ammo") as ThingDef;
+                var defName = linkDef.defName;
+                if (defName.Contains("EMP") || defName.Contains("Smoke"))
+                    continue;
+                ammoDefs.Add(linkDef);
             }
+            ThingDef ammoDef = ammoDefs.RandomElement();
             if (ammoDef == null) return;
 
             // Calculate how many bullets to add
-            int want = magazineSize > 1 ? Math.Min(magazineSize * 6, 200) : 30;
-            if (weaponDef.weaponTags.Contains("Glaunchers")) want = 5;
+            int want = magazineSize > 1 ? Math.Min(magazineSize * Rand.RangeInclusive(4, 6), Rand.RangeInclusive(150, 200)) : Rand.RangeInclusive(20, 30);
+            if (weaponDef.weaponTags.Contains("Glaunchers")) want = Rand.RangeInclusive(4, 6);
 
             var owner = pawn.inventory.GetDirectlyHeldThings();
-            int safety = 6; // prevent infinite loops
-            while (want > 0 && safety-- > 0)
-            {
-                int take = Math.Min(want, ammoDef.stackLimit);
-                var ammo = ThingMaker.MakeThing(ammoDef);
-                ammo.stackCount = take;
-
-                if (!owner.TryAdd(ammo))
-                {
-                    take = Math.Max(1, take);
-                    ammo.stackCount = take;
-                    if (!owner.TryAdd(ammo)) break;
-                }
-
-                want -= take;
-            }
+            int take = Math.Min(want, ammoDef.stackLimit);
+            var ammo = ThingMaker.MakeThing(ammoDef);
+            ammo.stackCount = take;
+            owner.TryAdd(ammo);
 
             // Helper function to set a property or field
             void SetMember(object target, string prop1, string prop2, string field1, string field2, object value)

@@ -139,5 +139,22 @@ namespace VSEWW
                 mapComp.waveCounter.UpdateWindow();
             }
         }
+
+        [DebugAction("VES Winston Wave", "Raid pawns show", false, false, actionType = DebugActionType.Action, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        public static void RaidPawnsShow()
+        {
+            var mapComp = Find.CurrentMap.GetComponent<MapComponent_Winston>();
+            if (mapComp != null && Find.Storyteller.def.defName == "VSE_WinstonWave")
+            {
+                var pawns = mapComp.nextRaidInfo.raidPawns;
+                if (pawns.Count > 0)
+                {
+                    for (int i = 0; i < pawns.Count; i++)
+                    {
+                        Log.Message(pawns[i].Name);
+                    }
+                }
+            }
+        }
     }
 }

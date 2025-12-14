@@ -118,6 +118,7 @@ namespace VSEWW
 
             var comp = map.GetComponent<MapComponent_Winston>();
             RewardCreator.SendReward(choosenReward, map, comp);
+            comp.PrepareNextWave();
         }
     }
 }

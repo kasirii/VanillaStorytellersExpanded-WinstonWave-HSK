@@ -89,7 +89,7 @@
     <defName>VSEWW_Bulletproof</defName>
     <texPath>UI/Modifiers/Modifier_Bulletproof</texPath>
     <label>Bulletproof</label>
-    <description>All enemies have their natural armor increased by 50%</description>
+    <description>All enemies have their natural armor increased by 15 mm RHA</description>
     <globalHediffs>
       <li>VESWW_BulletProof</li>
     </globalHediffs>

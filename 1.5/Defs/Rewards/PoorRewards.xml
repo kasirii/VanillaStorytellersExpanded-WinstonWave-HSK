@@ -84,7 +84,7 @@
 	<type>Resources</type>
     <items>
       <li>
-        <thing>MedicineHerbal</thing>
+        <thing>HerbMedicine</thing>
         <count>10</count>
       </li>
     </items>

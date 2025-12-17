@@ -55,8 +55,8 @@
   <VSEWW_RandomGoodDrop.label>Случ. хорошая награда</VSEWW_RandomGoodDrop.label>
   <VSEWW_RandomGoodDrop.description>Вместо конкретной награды «обычного» уровня можно получить случайную награду «хорошего» уровня.</VSEWW_RandomGoodDrop.description>
 
-  <VSEWW_MeteoriteImpact.label>Метеорит</VSEWW_MeteoriteImpact.label>
-  <VSEWW_MeteoriteImpact.description>Падение метеорита.</VSEWW_MeteoriteImpact.description>
+  <VSEWW_MeteoriteImpact.label>Обломок корабля</VSEWW_MeteoriteImpact.label>
+  <VSEWW_MeteoriteImpact.description>Падение обломка корабля.</VSEWW_MeteoriteImpact.description>
 
   <VSEWW_PsychicSoothe.label>Умиротворение</VSEWW_PsychicSoothe.label>
   <VSEWW_PsychicSoothe.description>Вызывает умиротворение.</VSEWW_PsychicSoothe.description>

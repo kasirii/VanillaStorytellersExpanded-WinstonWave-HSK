@@ -74,7 +74,7 @@
         <count>30</count>
       </li>
       <li>
-        <thing>MedicineHerbal</thing>
+        <thing>HerbMedicine</thing>
         <count>30</count>
       </li>
     </items>
@@ -314,13 +314,13 @@
   </VSEWW.RewardDef>
 
   <VSEWW.RewardDef>
-    <defName>VSEWW_MeteoriteImpact</defName>
-    <texPath>UI/Rewards/RewardMeteoriteImpact_Normal</texPath>
-    <label>Meteorite impact</label>
-    <description>Meteorite impact</description>
+    <defName>VSEWW_ShipChunkDrop</defName>
+    <texPath>UI/Rewards/RewardShipChunkDrop_Normal</texPath>
+    <label>Ship Chunk Drop</label>
+    <description>Ship Chunk Drop</description>
     <category>Normal</category>
 	<type>Misc</type>
-    <incidentDef>MeteoriteImpact</incidentDef>
+    <incidentDef>ShipChunkDrop</incidentDef>
   </VSEWW.RewardDef>
 
   <VSEWW.RewardDef>

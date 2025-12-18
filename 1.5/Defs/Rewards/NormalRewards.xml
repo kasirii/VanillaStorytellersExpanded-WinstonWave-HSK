@@ -315,7 +315,7 @@
 
   <VSEWW.RewardDef>
     <defName>VSEWW_ShipChunkDrop</defName>
-    <texPath>UI/Rewards/RewardShipChunkDrop_Normal</texPath>
+    <texPath>UI/Rewards/RewardMeteoriteImpact_Normal</texPath>
     <label>Ship Chunk Drop</label>
     <description>Ship Chunk Drop</description>
     <category>Normal</category>

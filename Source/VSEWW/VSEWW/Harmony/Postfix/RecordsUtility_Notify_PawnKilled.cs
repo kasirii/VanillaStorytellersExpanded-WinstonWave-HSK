@@ -12,12 +12,15 @@ namespace VSEWW
         public static void Postfix(Pawn killed, Pawn killer)
         {
             // Only if killer is a colonist
-            if (killer.Faction != Faction.OfPlayer)
+            if (killer?.Faction != Faction.OfPlayer)
+                return;
+
+            if (killed?.RaceProps == null)
                 return;
 
             var raceProps = killed.RaceProps;
             if (raceProps.Humanlike || raceProps.IsMechanoid)
-                Find.World.GetComponent<WorldComponent_KillCounter>().IncrementCounter();
+                Find.World?.GetComponent<WorldComponent_KillCounter>()?.IncrementCounter();
         }
     }
 }

@@ -201,11 +201,10 @@ namespace VSEWW
         }
 
         /// <summary>
-        /// Call functions and prepare the next wave and send reward if wanted
+        /// Call functions and prepare the next wave
         /// </summary>
-        internal void PrepareNextWave(bool sendReward = true)
+        internal void PrepareNextWave()
         {
-            // Prepare next wave
             currentWave++;
             nextRaidInfo.StopIncidentModifiers();
             nextRaidInfo = GetNextWave();

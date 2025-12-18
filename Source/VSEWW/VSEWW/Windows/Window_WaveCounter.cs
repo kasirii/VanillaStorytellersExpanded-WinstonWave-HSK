@@ -71,7 +71,7 @@ namespace VSEWW
                 windowRect.height += mcw.nextRaidInfo.kindListLines * 16f;
             }
             // Manage width
-            windowRect.width = 150f + 10f + ModifierSize + (mcw.nextRaidInfo.modifierCount * ModifierSize);
+            windowRect.width = 150f + 10f + ModifierSize + (mcw.nextRaidInfo.modifiers.Count * ModifierSize);
             // Manage position
             var pos = new Vector2(UI.screenWidth - windowRect.width - mcw.counterPos.x, mcw.counterPos.y);
             windowRect.position = pos;
@@ -101,7 +101,7 @@ namespace VSEWW
 
             // Modifiers and wave rect
             int i;
-            for (i = 1; i <= mcw.nextRaidInfo.modifierCount; i++)
+            for (i = 1; i <= mcw.nextRaidInfo.modifiers.Count; i++)
             {
                 Rect mRect = new Rect(rect)
                 {
@@ -236,7 +236,7 @@ namespace VSEWW
             // Wave and modifier
             Rect numRect = new Rect(rect)
             {
-                height = 50
+                height = ModifierSize
             };
             DoWaveNumberAndModifierUI(numRect);
             // Progress bar

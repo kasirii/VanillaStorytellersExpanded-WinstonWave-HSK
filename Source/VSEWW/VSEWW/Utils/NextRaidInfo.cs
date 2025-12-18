@@ -32,7 +32,6 @@ namespace VSEWW
         public int kindListLines;
         public string cacheKindList;
 
-        public int modifierCount;
         public bool reinforcementSent = false;
         public bool reinforcementPlanned = false;
         public bool modifiersPreventFlee = false;
@@ -215,7 +214,6 @@ namespace VSEWW
                 {
                     var modifier = usableModifiers.RandomElement();
                     modifiers.Add(modifier);
-                    modifierCount++;
                     usableModifiers.Remove(modifier);
                     usableModifiers.RemoveAll(m => m.incompatibleWith.Contains(modifier));
                 }
@@ -224,7 +222,6 @@ namespace VSEWW
                 {
                     var modifier = usableModifiers.RandomElement();
                     modifiers.Add(modifier);
-                    modifierCount++;
                     usableModifiers.Remove(modifier);
                     usableModifiers.RemoveAll(m => m.incompatibleWith.Contains(modifier));
                 }
@@ -794,7 +791,7 @@ namespace VSEWW
         public void StopIncidentModifiers()
         {
             var incidents = new List<IncidentDef>();
-            for (int m = 0; m < modifierCount; m++)
+            for (int m = 0; m < modifiers.Count; m++)
             {
                 if (modifiers[m].incidents is List<IncidentDef> _incidents)
                     incidents.AddRange(_incidents);

@@ -8,15 +8,17 @@ namespace VSEWW
 
         public override void Notify_PawnKilled()
         {
-            if (pawn?.Map != null && pawn.Faction != Faction.OfPlayer)
-                GenExplosion.DoExplosion(pawn.Position, pawn.Map, 2.9f, DamageDefOf.Bomb, pawn);
+            if (pawn?.Map != null && pawn?.Faction != Faction.OfPlayer)
+                GenExplosion.DoExplosion(pawn.Position, pawn.Map, 2.9f, DamageDefOf.Bomb, null);
+
             base.Notify_PawnKilled();
         }
 
         public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             if (pawn?.Map != null && pawn.Faction != Faction.OfPlayer)
-                GenExplosion.DoExplosion(pawn.Position, pawn.Map, 2.9f, DamageDefOf.Bomb, pawn);
+                GenExplosion.DoExplosion(pawn.Position, pawn.Map, 2.9f, DamageDefOf.Bomb, null);
+
             base.Notify_PawnDied(dinfo, culprit);
         }
     }

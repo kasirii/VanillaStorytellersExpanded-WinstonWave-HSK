@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <VSEWW_MercenaryJoins.label>Поселенец</VSEWW_MercenaryJoins.label>
-  <VSEWW_MercenaryJoins.description>К поселению присоединяется андроид.</VSEWW_MercenaryJoins.description>
+  <VSEWW_AndroidJoins.label>Андроид</VSEWW_AndroidJoins.label>
+  <VSEWW_AndroidJoins.description>К поселению присоединяется андроид.</VSEWW_AndroidJoins.description>
 
   <VSEWW_LegendaryResourceDrop.label>Ресурсы</VSEWW_LegendaryResourceDrop.label>
   <VSEWW_LegendaryResourceDrop.description>Грузовой контейнер, содержащий 3000 дерева, 3000 стали, 500 ферротитана, 100 механизмов, 50 продвинутых механизмов, 200 компонентов, 100 продвинутых компонентов, 100 электронных компонентов, 50 высокотехнологичных компонентов, 10 ультракомпонентов, 50 интегральных схем, 10 микрочипов, 5 биомикрочипов.</VSEWW_LegendaryResourceDrop.description>

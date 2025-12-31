@@ -147,7 +147,7 @@ namespace VSEWW
             Rect catRect = new Rect(rect.x, labelRect.yMax + 10, rect.width, 20);
             Widgets.Label(catRect, "VESWW.Reward".Translate(Category));
 
-            Rect descRect = new Rect(rect.x, catRect.yMax + 5, rect.width, 70);
+            Rect descRect = new Rect(rect.x, catRect.yMax + 5, rect.width, 120);
             Widgets.Label(descRect.ContractedBy(5), description);
 
             Rect buttonRect = new Rect(rect.x, rect.yMax - 35, rect.width, 30);

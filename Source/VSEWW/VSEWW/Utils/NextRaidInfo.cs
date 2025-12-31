@@ -204,6 +204,7 @@ namespace VSEWW
         /// </summary>
         private void ChooseModifiers()
         {
+            if (modifiers.Count != 0) return;
             var usableModifiers = GetUsableModifiers();
             // Choose two (max) modifiers
             if (usableModifiers.Count > 0)

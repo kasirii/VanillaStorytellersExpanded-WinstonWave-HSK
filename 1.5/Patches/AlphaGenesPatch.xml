@@ -12,12 +12,12 @@
 						<li MayRequire="vanillaracesexpanded.sanguophage">AG_Malachai</li>
 					</value>
 				</li>
-				<li Class="PatchOperationAdd">
+				<!--<li Class="PatchOperationAdd">
 					<xpath>Defs/VSEWW.RewardDef[defName="VSEWW_RandomSanguophage_Legendary"]/randomPawns/li/randomXenotypeFrom</xpath>
 					<value>
 						<li MayRequire="vanillaracesexpanded.sanguophage">AG_Malachai</li>
 					</value>
-				</li>
+				</li>-->
 				
 			</operations>
 		</match>

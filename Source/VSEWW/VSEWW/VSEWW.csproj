@@ -57,6 +57,7 @@
     <Compile Include="Utils\Reward\RewardCategory.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\DebugOptions.cs" />
+    <Compile Include="Utils\IgnoranceIntegration.cs" />
     <Compile Include="Defs\RewardDef.cs" />
     <Compile Include="CompMap\MapComponent_Winston.cs" />
     <Compile Include="Utils\NextRaidInfo.cs" />

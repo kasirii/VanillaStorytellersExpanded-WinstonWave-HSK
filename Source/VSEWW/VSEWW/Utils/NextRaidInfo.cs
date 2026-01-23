@@ -88,6 +88,7 @@ namespace VSEWW
                     && f.def.defName != "HoraxCult"
                     && f.def.defName != "VRE_Archons"
                     && f.HostileTo(Faction.OfPlayer)
+                    && IgnoranceIntegration.IsFactionAllowed(f)
                     && ((f.def.earliestRaidDays <= GenDate.DaysPassed * WinstonMod.settings.dayMultiplier) 
                         || !WinstonMod.settings.earliestRaidCheck)
                     && f.def.pawnGroupMakers != null

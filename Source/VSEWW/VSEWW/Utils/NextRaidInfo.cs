@@ -70,7 +70,7 @@ namespace VSEWW
             ApplyPrePawnGen();
             SetPawnsInfo();
             ApplyPostPawnGen();
-        }
+            }
 
         /// <summary>
         /// Find random faction for the wave
@@ -309,7 +309,7 @@ namespace VSEWW
         /// </summary>
         internal void ApplyPrePawnGen()
         {
-            var allModifiers = modifiers;
+            var allModifiers = new List<ModifierDef>(modifiers);
             allModifiers?.AddRange(mysteryModifiers);
             if (allModifiers?.Count > 0) {
 
@@ -346,7 +346,7 @@ namespace VSEWW
         /// </summary>
         internal void ApplyPostPawnGen()
         {
-            var allModifiers = modifiers;
+            var allModifiers = new List<ModifierDef>(modifiers);
             allModifiers.AddRange(mysteryModifiers);
 
             for (int i = 0; i < allModifiers.Count; i++)

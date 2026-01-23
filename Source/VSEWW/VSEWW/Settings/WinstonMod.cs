@@ -12,6 +12,7 @@ namespace VSEWW
         private string _timeBetweenWaves;
         private string _timeToDefeatWave;
         private string _maxPoints;
+        private string _dayMultiplier;
         private string _pointMultiplierBefore;
         private string _pointMultiplierAfter;
 
@@ -211,6 +212,13 @@ namespace VSEWW
             waveSettingsLst.Gap(12);
             waveSettingsLst.CheckboxLabeled("VESWW.EarliestRaidCheck".Translate(), ref settings.earliestRaidCheck, tooltip: "VESWW.EarliestRaidCheckTip".Translate());
             waveSettingsLst.Gap(5);
+
+            if (settings.earliestRaidCheck)
+            {
+                waveSettingsLst.Label("VESWW.DayMultiplier".Translate(), tooltip: "VESWW.DayMultiplierTip".Translate());
+                waveSettingsLst.TextFieldNumeric(ref settings.dayMultiplier, ref _dayMultiplier, 1f);
+                waveSettingsLst.Gap(5);
+            }
 
             waveSettingsLst.Gap(12);
             waveSettingsLst.CheckboxLabeled("VESWW.linearThreatScale".Translate(), ref settings.linearThreatScale, tooltip: "VESWW.linearThreatScaleTip".Translate());

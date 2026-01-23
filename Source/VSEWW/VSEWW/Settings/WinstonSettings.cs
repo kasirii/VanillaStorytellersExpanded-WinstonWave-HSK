@@ -7,6 +7,7 @@ namespace VSEWW
     {
         public bool enableMaxPoint = true;
         public bool earliestRaidCheck = true;
+        public float dayMultiplier = 1f;
         public bool linearThreatScale = false;
         public int maxPoints = 25000;
         public float timeBeforeFirstWave = 5f;
@@ -34,6 +35,7 @@ namespace VSEWW
             base.ExposeData();
             Scribe_Values.Look(ref enableMaxPoint, "enableMaxPoint", true);
             Scribe_Values.Look(ref earliestRaidCheck, "earliestRaidCheck", true);
+            Scribe_Values.Look(ref dayMultiplier, "dayMultiplier", 1f);
             Scribe_Values.Look(ref linearThreatScale, "linearThreatScale", false);
             Scribe_Values.Look(ref maxPoints, "maxPoints", 25000);
             Scribe_Values.Look(ref timeBeforeFirstWave, "timeBeforeFirstWave", 5f);

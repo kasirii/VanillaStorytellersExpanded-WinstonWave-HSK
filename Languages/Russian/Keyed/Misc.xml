@@ -53,6 +53,7 @@
   <VESWW.MaxPoints>Максимальное число используемых поинтов:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Включить ограничение количества очков рейда:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Включить проверку самого раннего дня для рейда:</VESWW.EarliestRaidCheck>
+  <VESWW.DayMultiplier>Множитель дней:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Включить линейный рост рейдпоинтов:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Нарисовать фон счетчика волн:</VESWW.DrawBackground>
   <VESWW.PointMultiplierBefore20>Множитель числа поинтов волн перед 20 волной:</VESWW.PointMultiplierBefore20>
@@ -64,9 +65,9 @@
   <VESWW.Modifiers>Исключить модификатор(ы) из волн:</VESWW.Modifiers>
   <VESWW.RModifiers>Удалить модификатор(ы) из исключений</VESWW.RModifiers>
   <VESWW.AModifiers>Исключить модификатор(ы)</VESWW.AModifiers>
-	<VESWW.Rewards>Исключить награду(ы) из волн:</VESWW.Rewards>
-	<VESWW.RRewards>Удалить награду(ы) из исключений</VESWW.RRewards>
-	<VESWW.ARewards>Исключить награду(ы)</VESWW.ARewards>
+  <VESWW.Rewards>Исключить награду(ы) из волн:</VESWW.Rewards>
+  <VESWW.RRewards>Удалить награду(ы) из исключений</VESWW.RRewards>
+  <VESWW.ARewards>Исключить награду(ы)</VESWW.ARewards>
   <VESWW.ExcludedFaction>Исключить определенные фракцию(и) из волн:</VESWW.ExcludedFaction>
   <VESWW.AddExcludedFaction>Исключить фракцию(и)</VESWW.AddExcludedFaction>
   <VESWW.RemoveExcludedFaction>Удалить фракцию из исключений</VESWW.RemoveExcludedFaction>
@@ -90,6 +91,7 @@
   <VESWW.TimeToDefeatWaveTip>Максимальное количество дней, в течение которых игрок должен победить волну. Если волна не побеждена в течение этого времени, готовится следующая волна, и награды не выдаются.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Максимальное количество поинтов, используемых в генерации рейдов.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Некоторые фракции не появятся в начале игры.</VESWW.EarliestRaidCheckTip>
+  <VESWW.DayMultiplierTip>Ускоряет прогрессию фракций, больше значение раньше придут.</VESWW.DayMultiplierTip>
   <VESWW.linearThreatScaleTip>Вместо экспоненциального роста будет применяться линейный рост с приращением = 100*(WavePointsMultiplayer):</VESWW.linearThreatScaleTip>
   <VESWW.PointMultiplierBefore20Tip>Множитель числа поинтов волн перед 20 волной.</VESWW.PointMultiplierBefore20Tip>
   <VESWW.PointMultiplierAfter20Tip>Множитель числа поинтов волн после 20 волны.</VESWW.PointMultiplierAfter20Tip>

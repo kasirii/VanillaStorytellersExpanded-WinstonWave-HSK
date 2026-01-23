@@ -53,6 +53,7 @@
   <VESWW.MaxPoints>Max threat points used:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Enable raid point cap:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Enable Earliest day to Raid Check:</VESWW.EarliestRaidCheck>
+  <VESWW.DayMultiplier>Day multiplier:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Enable Linear raidpoint growth:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Draw wave counter background:</VESWW.DrawBackground>
   <VESWW.PointMultiplierBefore20>Wave points multiplier before wave 20:</VESWW.PointMultiplierBefore20>
@@ -64,9 +65,9 @@
   <VESWW.Modifiers>Exclude modifier(s) from waves:</VESWW.Modifiers>
   <VESWW.RModifiers>Remove modifier(s) from excluded</VESWW.RModifiers>
   <VESWW.AModifiers>Exclude modifier(s)</VESWW.AModifiers>
-	<VESWW.Rewards>Exclude reward(s) from waves:</VESWW.Rewards>
-	<VESWW.RRewards>Remove reward(s) from excluded</VESWW.RRewards>
-	<VESWW.ARewards>Exclude reward(s)</VESWW.ARewards>
+  <VESWW.Rewards>Exclude reward(s) from waves:</VESWW.Rewards>
+  <VESWW.RRewards>Remove reward(s) from excluded</VESWW.RRewards>
+  <VESWW.ARewards>Exclude reward(s)</VESWW.ARewards>
   <VESWW.ExcludedFaction>Exclude certain faction(s) from waves:</VESWW.ExcludedFaction>
   <VESWW.AddExcludedFaction>Exclude faction</VESWW.AddExcludedFaction>
   <VESWW.RemoveExcludedFaction>Remove faction from excluded</VESWW.RemoveExcludedFaction>
@@ -82,7 +83,7 @@
   <VESWW.GS>General</VESWW.GS>
   <VESWW.VS>Waves</VESWW.VS>
   <VESWW.MS>Modifiers</VESWW.MS>
-	<VESWW.RS>Rewards</VESWW.RS>
+  <VESWW.RS>Rewards</VESWW.RS>
   <VESWW.WCS>Wave counter</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Number of days before the first wave arrive.</VESWW.TimeBeforeFirstWaveTip>
@@ -90,6 +91,7 @@
   <VESWW.TimeToDefeatWaveTip>Maximum number of days the player have to defeat a wave. If the wave isn't defeated in this time, the next wave is prepared and no rewards are given.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Maximum amount of points used in the raid generation.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Some factions will not appear early.</VESWW.EarliestRaidCheckTip>
+  <VESWW.DayMultiplierTip>Speeds up factions' progression, the higher the value, the sooner they'll arrive.</VESWW.DayMultiplierTip>
   <VESWW.linearThreatScaleTip>Instead of exponential, linear growth with slope = 100*(WavePointsMultiplayer) will be applied:</VESWW.linearThreatScaleTip>
   <VESWW.PointMultiplierBefore20Tip>Raid point multiplier used before the wave 20.</VESWW.PointMultiplierBefore20Tip>
   <VESWW.PointMultiplierAfter20Tip>Raid point multiplier used after the wave 20.</VESWW.PointMultiplierAfter20Tip>

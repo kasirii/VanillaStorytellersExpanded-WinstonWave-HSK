@@ -88,7 +88,8 @@ namespace VSEWW
                     && f.def.defName != "HoraxCult"
                     && f.def.defName != "VRE_Archons"
                     && f.HostileTo(Faction.OfPlayer)
-                    && ((f.def.earliestRaidDays <= GenDate.DaysPassed) || !WinstonMod.settings.earliestRaidCheck)
+                    && ((f.def.earliestRaidDays <= GenDate.DaysPassed * WinstonMod.settings.dayMultiplier) 
+                        || !WinstonMod.settings.earliestRaidCheck)
                     && f.def.pawnGroupMakers != null
                     && f.def.pawnGroupMakers.Any(p => p.kindDef == PawnGroupKindDefOf.Combat && points <= p.maxTotalPoints)
                     && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat))

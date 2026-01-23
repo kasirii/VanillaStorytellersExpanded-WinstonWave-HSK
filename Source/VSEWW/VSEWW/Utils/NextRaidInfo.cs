@@ -769,17 +769,20 @@ namespace VSEWW
         /// <summary>
         /// Send incidents modifiers
         /// </summary>
+
         public void SendIncidentModifiers()
         {
-            foreach (var modifier in modifiers)
+            var allModifiers = new List<ModifierDef>(modifiers);
+            allModifiers.AddRange(mysteryModifiers);
+            for (int m = 0; m < allModifiers.Count; m++)
             {
-                if (!modifier.incidents.NullOrEmpty())
+                if (!allModifiers[m].incidents.NullOrEmpty())
                 {
-                    modifier.incidents.ForEach(i =>
+                    allModifiers[m].incidents.ForEach(i =>
                     {
-                        Find.Storyteller.incidentQueue.Add(i, Find.TickManager.TicksGame, new IncidentParms()
-                        {
-                            target = map
+                        Find.Storyteller.incidentQueue.Add(i, Find.TickManager.TicksGame, new IncidentParms() 
+                        { 
+                            target = map 
                         });
                     });
                 }
@@ -791,25 +794,34 @@ namespace VSEWW
         /// </summary>
         public void StopIncidentModifiers()
         {
-            var incidents = new List<IncidentDef>();
-            for (int m = 0; m < modifiers.Count; m++)
-            {
-                if (modifiers[m].incidents is List<IncidentDef> _incidents)
-                    incidents.AddRange(_incidents);
-            }
+            var allModifiers = new List<ModifierDef>(modifiers);
+            allModifiers.AddRange(mysteryModifiers);
 
-            for (int i = 0; i < incidents.Count; i++)
+            var activeConditions = map.GameConditionManager.ActiveConditions;
+
+            for (int m = 0; m < allModifiers.Count; m++)
             {
-                var incident = incidents[i];
-                var conditions = map.GameConditionManager.ActiveConditions;
-                for (int c = 0; c < conditions.Count; c++)
+                var incidents = allModifiers[m].incidents;
+                if (incidents.NullOrEmpty())
+                    continue;
+
+                for (int i = 0; i < incidents.Count; i++)
                 {
-                    var condition = conditions[c];
-                    if (incident.gameCondition == condition.def)
-                        condition.End();
+                    var conditionDef = incidents[i].gameCondition;
+                    if (conditionDef == null)
+                        continue;
+
+                    for (int c = activeConditions.Count - 1; c >= 0; c--)
+                    {
+                        if (activeConditions[c].def == conditionDef)
+                            activeConditions[c].End();
+                    }
                 }
             }
         }
+
+
+
 
         /// <summary>
         /// Get time before this raid (IRL or rimworld)

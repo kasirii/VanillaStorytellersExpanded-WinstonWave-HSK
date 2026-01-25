@@ -55,7 +55,8 @@
   <VESWW.MaxPoints>Максимальное число используемых поинтов:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Включить ограничение количества очков рейда:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Включить проверку самого раннего дня для рейда:</VESWW.EarliestRaidCheck>
-  <VESWW.DayMultiplier>Множитель дней:</VESWW.DayMultiplier>
+	<VESWW.noWaterRaid>Запретить приход рейдов из воды:</VESWW.noWaterRaid>
+ <VESWW.DayMultiplier>Множитель дней:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Включить линейный рост рейдпоинтов:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Нарисовать фон счетчика волн:</VESWW.DrawBackground>
   <VESWW.PointMultiplierBefore20>Множитель числа поинтов волн перед 20 волной:</VESWW.PointMultiplierBefore20>

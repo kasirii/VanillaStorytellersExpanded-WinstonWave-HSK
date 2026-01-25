@@ -230,6 +230,10 @@ namespace VSEWW
 
             waveSettingsLst.Label("VESWW.PointMultiplierAfter20".Translate(), tooltip: "VESWW.PointMultiplierAfter20Tip".Translate());
             waveSettingsLst.TextFieldNumeric(ref settings.pointMultiplierAfter, ref _pointMultiplierAfter, 1f, 10f);
+            waveSettingsLst.Gap(5);
+
+            waveSettingsLst.Gap(12);
+            waveSettingsLst.CheckboxLabeled("VESWW.noWaterRaid".Translate(), ref settings.noWaterRaid);
             waveSettingsLst.GapLine(12);
 
             waveSettingsLst.Gap(12);

@@ -152,7 +152,7 @@ namespace VSEWW
                 Log.Error("Could not resolve arrival mode for raid. Defaulting to EdgeWalkIn. parms=" + (object)parms);
                 parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;
             }
-            if (parms.raidArrivalMode == PawnsArrivalModeDefOf.EmergeFromWater)
+            if (WinstonMod.settings.noWaterRaid && parms.raidArrivalMode == PawnsArrivalModeDefOf.EmergeFromWater)
                 parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;
         }
 
@@ -756,7 +756,7 @@ namespace VSEWW
                 Log.Error($"[VESWW] Couldn't reslove raid spawn center. parms=" + parms);
                 return;
             }
-            if (parms.raidArrivalMode == null)
+            if (parms.raidArrivalMode != null)
                 parms.raidArrivalMode.Worker.Arrive(raidPawns, parms);
         }
 

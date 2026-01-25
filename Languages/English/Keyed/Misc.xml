@@ -55,6 +55,7 @@
   <VESWW.MaxPoints>Max threat points used:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Enable raid point cap:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Enable Earliest day to Raid Check:</VESWW.EarliestRaidCheck>
+	<VESWW.noWaterRaid>Forbid emerge from water arrive mod:</VESWW.noWaterRaid>
   <VESWW.DayMultiplier>Day multiplier:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Enable Linear raidpoint growth:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Draw wave counter background:</VESWW.DrawBackground>

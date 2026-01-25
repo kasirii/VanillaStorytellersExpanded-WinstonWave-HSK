@@ -140,6 +140,8 @@ namespace VSEWW
         {
             string title = mcw.nextRaidInfo.waveType == 0 ? "VESWW.NormalWave".Translate() : "VESWW.BossWave".Translate();
             string pointUsed = "VESWW.PointUsed".Translate(mcw.nextRaidInfo.parms.points);
+            string strategyUsed = "VESWW.StrategyUsed".Translate(mcw.nextRaidInfo.parms.raidStrategy?.defName);
+            string arrivalModeUsed = "VESWW.ArrivalModeUsed".Translate(mcw.nextRaidInfo.parms.raidArrivalMode?.defName);
             string rewardChance = "";
 
             var c = RewardCommonalities.GetCommonalities(mcw.nextRaidInfo.waveNumber);
@@ -149,7 +151,7 @@ namespace VSEWW
                 rewardChance += $"{item.Key} - {(item.Value > 0 ? item.Value / total : 0).ToStringPercent()}\n";
             }
 
-            waveTip = $"<b>{title}</b>\n\n{pointUsed}\n\n{"VESWW.RewardChance".Translate()}\n{rewardChance}".TrimEndNewlines();
+            waveTip = $"<b>{title}</b>\n\n{pointUsed}\n{strategyUsed}\n{arrivalModeUsed}\n\n{"VESWW.RewardChance".Translate()}\n{rewardChance}".TrimEndNewlines();
         }
 
         private void DoWavePredictionUI(Rect rect)

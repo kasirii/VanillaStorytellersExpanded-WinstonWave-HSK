@@ -29,6 +29,8 @@
   <VESWW.BossWave>Boss wave</VESWW.BossWave>
   <VESWW.NormalWave>Normal wave</VESWW.NormalWave>
   <VESWW.PointUsed>{0} points used</VESWW.PointUsed>
+	<VESWW.StrategyUsed>Raid strategy: {0}</VESWW.StrategyUsed>
+	<VESWW.ArrivalModeUsed>Raid arrival: {0}</VESWW.ArrivalModeUsed>
   <VESWW.RewardChance>Reward commonality at this wave:</VESWW.RewardChance>
   <VESWW.MoreRewardChance>{0} chance of getting a fourth reward choice if summoning the wave now</VESWW.MoreRewardChance>
   <VESWW.GameOver>Game Over!</VESWW.GameOver>

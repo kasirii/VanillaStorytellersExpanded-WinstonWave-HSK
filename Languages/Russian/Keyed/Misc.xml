@@ -29,6 +29,8 @@
   <VESWW.BossWave>Волна-босс</VESWW.BossWave>
   <VESWW.NormalWave>Обычная волна</VESWW.NormalWave>
   <VESWW.PointUsed>{0} поинтов используется</VESWW.PointUsed>
+	<VESWW.StrategyUsed>Стратегия рейда: {0}</VESWW.StrategyUsed>
+	<VESWW.ArrivalModeUsed>Тип прибытия: {0}</VESWW.ArrivalModeUsed>
   <VESWW.RewardChance>Редкость наград в этой волне:</VESWW.RewardChance>
   <VESWW.MoreRewardChance>{0} шанс получить четвертую награду на выбор, если запустить волну сейчас</VESWW.MoreRewardChance>
   <VESWW.GameOver>Game Over!</VESWW.GameOver>

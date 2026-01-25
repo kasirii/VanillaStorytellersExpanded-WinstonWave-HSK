@@ -57,7 +57,8 @@ namespace VSEWW
                 points = points,
                 faction = RandomEnnemyFaction(points),
                 raidStrategy = null,
-                canKidnap=false,
+                raidArrivalMode = null,
+                canKidnap =false,
                 canSteal=false
             };
             atTick = ticks + (int)(days * GenDate.TicksPerDay);
@@ -66,6 +67,7 @@ namespace VSEWW
             waveType = wave % 5 == 0 ? 1 : 0;
 
             ChooseRandomStrategyDef();
+            //ResolveRaidArrival();
             ChooseModifiers();
             ApplyPrePawnGen();
             SetPawnsInfo();
@@ -133,6 +135,23 @@ namespace VSEWW
 
             if (parms.raidStrategy == null)
                 Startup.normalStrategies.FindAll(s => CanUseStrategy(s)).TryRandomElementByWeight(d => d.Worker.SelectionWeightForFaction(map, parms.faction, parms.points), out parms.raidStrategy);
+            
+            if (parms.raidArrivalModeForQuickMilitaryAid && !DefDatabase<PawnsArrivalModeDef>.AllDefs.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => d.forQuickMilitaryAid)).Any<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => (double)d.Worker.GetSelectionWeight(parms) > 0.0)))
+            {
+                parms.raidArrivalMode = (double)Rand.Value < 0.60000002384185791 ? PawnsArrivalModeDefOf.EdgeDrop : PawnsArrivalModeDefOf.CenterDrop;
+            }
+            else
+            {
+                if (parms.raidStrategy == null)
+                {
+                    Log.Error("parms raidStrategy was null but shouldn't be. Defaulting to ImmediateAttack.");
+                    parms.raidStrategy = RaidStrategyDefOf.ImmediateAttack;
+                }
+                if (parms.raidStrategy.arriveModes.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(x => x.Worker.CanUseWith(parms))).TryRandomElementByWeight<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, float>)(x => x.Worker.GetSelectionWeight(parms)), out parms.raidArrivalMode))
+                    return;
+                Log.Error("Could not resolve arrival mode for raid. Defaulting to EdgeWalkIn. parms=" + (object)parms);
+                parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;
+            }
         }
 
         /// <summary>
@@ -158,6 +177,7 @@ namespace VSEWW
             outPawns = new HashSet<Pawn>();
             if (raidPawns.NullOrEmpty())
             {
+                parms.points = IncidentWorker_Raid.AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, PawnGroupKindDefOf.Combat, parms.raidAgeRestriction);
                 // Generate pawns group maker
                 var group = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
                 if (group == null)
@@ -650,10 +670,10 @@ namespace VSEWW
             Find.TickManager.slower.SignalForceNormalSpeedShort();
             Find.StoryWatcher.statsRecord.numRaidsEnemy++;
             map.StoryState.lastRaidFaction = parms.faction;
+            //if (parms.raidArrivalMode == null)
+            ResolveRaidArrival();
             // Generate raid loot
             GenerateRaidLoot();
-            // Resolve stuff and send pawns
-            ResolveRaidArrival();
             // Make letter label/text
             var letterLabel = (TaggedString)parms.raidStrategy.letterLabelEnemy + ": " + parms.faction.Name;
             var letterText = (TaggedString)GetLetterText();
@@ -738,8 +758,8 @@ namespace VSEWW
             {
                 parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;
             }
-
-            parms.raidArrivalMode.Worker.Arrive(raidPawns, parms);
+            if (parms.raidArrivalMode != null)
+                parms.raidArrivalMode.Worker.Arrive(raidPawns, parms);
         }
 
         /// <summary>

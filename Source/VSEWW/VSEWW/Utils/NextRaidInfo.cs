@@ -756,7 +756,7 @@ namespace VSEWW
                 Log.Error($"[VESWW] Couldn't reslove raid spawn center. parms=" + parms);
                 return;
             }
-            if (parms.raidArrivalMode != null)
+            if (parms.raidArrivalMode == null)
                 parms.raidArrivalMode.Worker.Arrive(raidPawns, parms);
         }
 

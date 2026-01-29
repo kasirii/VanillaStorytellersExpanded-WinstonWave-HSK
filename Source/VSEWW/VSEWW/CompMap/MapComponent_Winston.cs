@@ -210,18 +210,16 @@ namespace VSEWW
             nextRaidInfo = GetNextWave();
             waveCounter?.UpdateWindow();
             waveCounter?.WaveTip();
-            
         }
 
         /// <summary>
         /// Generate either a normal or a boss wave depending on the current wave number
         /// </summary>
-        private NextRaidInfo GetNextWave()
+        public NextRaidInfo GetNextWave()
         {
             var nextRaidInfo = new NextRaidInfo();
             nextRaidInfo.Init(currentWave, GetNextWavePoint(), map);
             nextRaidInfo.atTick += waveDelay * 60000;
-            waveCounter?.UpdateWindow();
 
             return nextRaidInfo;
         }
@@ -231,7 +229,7 @@ namespace VSEWW
         /// </summary>
         internal float GetNextWavePoint()
         {
-            if (currentPoints <= 0 || currentPoints < 100)
+            if (currentPoints < 100)
                 currentPoints = WinstonMod.settings.linearThreatScale ? 0 : 100;
             // Apply wave multiplier
             if (WinstonMod.settings.linearThreatScale)
@@ -240,10 +238,10 @@ namespace VSEWW
                 currentPoints *= currentWave <= 20 ? WinstonMod.settings.pointMultiplierBefore : WinstonMod.settings.pointMultiplierAfter;
 
             // Get point for this wave
-            var point = currentPoints * nextRaidMultiplyPoints;
+            var point = (WinstonMod.settings.enableMaxPoint ? Mathf.Min(currentPoints, WinstonMod.settings.maxPoints) : currentPoints) * nextRaidMultiplyPoints;
             nextRaidMultiplyPoints = 1f;
 
-            return WinstonMod.settings.enableMaxPoint ? Mathf.Min(point, WinstonMod.settings.maxPoints) : point;
+            return point;
         }
 
         /// <summary>

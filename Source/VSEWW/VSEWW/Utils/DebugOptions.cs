@@ -97,6 +97,7 @@ namespace VSEWW
                             c.nextRaidInfo.SetPawnsInfo();
                             c.nextRaidInfo.ApplyPostPawnGen();
                             c.waveCounter.UpdateWindow();
+                            c.waveCounter.WaveTip();
                         }
                         else
                         {
@@ -116,9 +117,9 @@ namespace VSEWW
             if (mapComp != null && Find.Storyteller.def.defName == "VSE_WinstonWave")
             {
                 mapComp.nextRaidInfo.StopIncidentModifiers();
-                mapComp.nextRaidInfo = new NextRaidInfo();
-                mapComp.nextRaidInfo.Init(mapComp.currentWave, mapComp.currentPoints, mapComp.map);
+                mapComp.nextRaidInfo = mapComp.GetNextWave();
                 mapComp.waveCounter.UpdateWindow();
+                mapComp.waveCounter.WaveTip();
             }
             
 
@@ -137,6 +138,7 @@ namespace VSEWW
                 mapComp.nextRaidInfo = new NextRaidInfo();
                 mapComp.nextRaidInfo.Init(mapComp.currentWave, mapComp.GetNextWavePoint(), mapComp.map);
                 mapComp.waveCounter.UpdateWindow();
+                mapComp.waveCounter.WaveTip();
             }
         }
 

@@ -67,7 +67,6 @@ namespace VSEWW
             waveType = wave % 5 == 0 ? 1 : 0;
 
             ChooseRandomStrategyDef();
-            //ResolveRaidArrival();
             ChooseModifiers();
             ApplyPrePawnGen();
             SetPawnsInfo();
@@ -230,44 +229,39 @@ namespace VSEWW
         {
             if (modifiers.Count != 0) return;
             var usableModifiers = GetUsableModifiers();
+            int[] modifierChance = GetModifiersChance();
+
             // Choose two (max) modifiers
-            if (usableModifiers.Count > 0)
+            TryAddModifier(modifiers, usableModifiers, modifierChance[0]);
+            TryAddModifier(modifiers, usableModifiers, modifierChance[1]);
+
+            for (int i = 0; i < modifiers.Count && usableModifiers.Count > 0; i++)
             {
-                int[] modifierChance = GetModifiersChance();
-
-                if (modifierChance[0] > 0 && modifierChance[0] < Rand.Range(0, 100))
+                if (modifiers[i].mystery)
                 {
-                    var modifier = usableModifiers.RandomElement();
-                    modifiers.Add(modifier);
-                    usableModifiers.Remove(modifier);
-                    usableModifiers.RemoveAll(m => m.incompatibleWith.Contains(modifier));
-                }
-
-                if (modifierChance[1] > 0 && modifierChance[1] < Rand.Range(0, 100) && usableModifiers.Count > 0)
-                {
-                    var modifier = usableModifiers.RandomElement();
-                    modifiers.Add(modifier);
-                    usableModifiers.Remove(modifier);
-                    usableModifiers.RemoveAll(m => m.incompatibleWith.Contains(modifier));
+                    AddRandomModifier(mysteryModifiers, usableModifiers);
                 }
             }
-            // Choose random modifiers if is mystery
-            if (usableModifiers.Count > 0)
-            {
-                for (int i = 0; i < modifiers.Count; i++)
-                {
-                    if (modifiers[i].mystery)
-                    {
-                        var modifier = usableModifiers.RandomElement();
-                        mysteryModifiers.Add(modifier);
-                        usableModifiers.Remove(modifier);
-                        usableModifiers.RemoveAll(m => m.incompatibleWith.Contains(modifier));
-                    }
-                }
-            }
+        }
 
-            modifiersPreventFlee = modifiers.Any(m => !m.everRetreat) || mysteryModifiers.Any(m => !m.everRetreat);
-            reinforcementPlanned = modifiers.Any(m => m.defName == "VSEWW_Reinforcements") || mysteryModifiers.Any(m => m.defName == "VSEWW_Reinforcements");
+        private void TryAddModifier(List<ModifierDef> target, List<ModifierDef> usable, int chance)
+        {
+            if (usable.Count == 0) return;
+            if (chance <= 0) return;
+
+            if (chance < Rand.Range(0, 100))
+            {
+                AddRandomModifier(target, usable);
+            }
+        }
+
+        private void AddRandomModifier(List<ModifierDef> target, List<ModifierDef> usable)
+        {
+            var modifier = usable.RandomElement();
+            target.Add(modifier);
+
+            usable.Remove(modifier);
+            usable.RemoveAll(m => m.incompatibleWith.Contains(modifier));
         }
 
         /// <summary>
@@ -335,34 +329,35 @@ namespace VSEWW
         {
             var allModifiers = new List<ModifierDef>(modifiers);
             allModifiers?.AddRange(mysteryModifiers);
-            if (allModifiers?.Count > 0) {
+            if (allModifiers?.Count == 0) return;
 
-                for (int i = 0; i < allModifiers.Count; i++)
+            for (int i = 0; i < allModifiers.Count; i++)
+            {
+                var modifier = allModifiers[i];
+
+                if (modifier.pointMultiplier > 0)
+                    parms.points *= modifier.pointMultiplier;
+
+                if (!modifier.everRetreat)
                 {
-                    var modifier = allModifiers[i];
-
-                    if (modifier.pointMultiplier > 0)
-                        parms.points *= modifier.pointMultiplier;
-
-                    if (!modifier.everRetreat)
-                        parms.canTimeoutOrFlee = false;
-
-                    if (!modifier.specificPawnKinds.NullOrEmpty())
-                    {
-                        float point = 0;
-                        while (point < parms.points)
-                        {
-                            var kind = modifier.specificPawnKinds.RandomElement();
-                            raidPawns.Add(PawnGenerator.GeneratePawn(kind, parms.faction));
-                            point += kind.combatPower;
-                        }
-                    }
-
-
+                    parms.canTimeoutOrFlee = false;
+                    modifiersPreventFlee = true;
                 }
 
+                if (modifier.defName == "VSEWW_Reinforcements")
+                    reinforcementPlanned = true;
+
+                if (!modifier.specificPawnKinds.NullOrEmpty())
+                {
+                    float point = 0;
+                    while (point < parms.points)
+                    {
+                        var kind = modifier.specificPawnKinds.RandomElement();
+                        raidPawns.Add(PawnGenerator.GeneratePawn(kind, parms.faction));
+                        point += kind.combatPower;
+                    }
+                }
             }
-            
         }
 
         /// <summary>

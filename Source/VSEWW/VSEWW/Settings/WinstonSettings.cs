@@ -6,6 +6,7 @@ namespace VSEWW
     public class WinstonSettings : ModSettings
     {
         public bool enableMaxPoint = true;
+        public bool enableGraceDelay = true;
         public bool earliestRaidCheck = true;
         public float dayMultiplier = 1f;
         public bool linearThreatScale = false;
@@ -35,6 +36,7 @@ namespace VSEWW
         {
             base.ExposeData();
             Scribe_Values.Look(ref enableMaxPoint, "enableMaxPoint", true);
+            Scribe_Values.Look(ref enableGraceDelay, "enableGraceDelay", true);
             Scribe_Values.Look(ref earliestRaidCheck, "earliestRaidCheck", true);
             Scribe_Values.Look(ref dayMultiplier, "dayMultiplier", 1f);
             Scribe_Values.Look(ref linearThreatScale, "linearThreatScale", false);

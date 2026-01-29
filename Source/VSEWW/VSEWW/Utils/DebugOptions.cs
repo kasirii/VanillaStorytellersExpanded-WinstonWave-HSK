@@ -132,7 +132,6 @@ namespace VSEWW
             if (mapComp != null && Find.Storyteller.def.defName == "VSE_WinstonWave")
             {
                 mapComp.currentWave = 1;
-                mapComp.currentPoints = 1;
 
                 mapComp.nextRaidInfo.StopIncidentModifiers();
                 mapComp.nextRaidInfo = new NextRaidInfo();

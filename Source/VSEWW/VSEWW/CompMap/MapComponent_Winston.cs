@@ -15,11 +15,10 @@ namespace VSEWW
         public NextRaidInfo nextRaidInfo;
 
         public int currentWave = 1;
-        public float currentPoints = 0;
         private float modifierChance = 0;
         public bool nextRaidSendAllies = false;
         public float nextRaidMultiplyPoints = 1f;
-        public int waveDelay = 0;
+        public float waveDelay = 0;
 
         public IntVec3 dropSpot = IntVec3.Invalid;
 
@@ -77,7 +76,6 @@ namespace VSEWW
         public override void ExposeData()
         {
             Scribe_Values.Look(ref currentWave, "currentWave");
-            Scribe_Values.Look(ref currentPoints, "currentPoints");
             Scribe_Values.Look(ref modifierChance, "modifierChance");
             Scribe_Values.Look(ref nextRaidSendAllies, "nextRaidSendAllies");
             Scribe_Values.Look(ref nextRaidMultiplyPoints, "nextRaidMultiplyPoints");
@@ -219,7 +217,7 @@ namespace VSEWW
         {
             var nextRaidInfo = new NextRaidInfo();
             nextRaidInfo.Init(currentWave, GetNextWavePoint(), map);
-            nextRaidInfo.atTick += waveDelay * 60000;
+            nextRaidInfo.atTick += (int)(waveDelay * 60000);
 
             return nextRaidInfo;
         }
@@ -231,6 +229,7 @@ namespace VSEWW
         {
             //base points balanced over 280% threat scale option
             float basePoints = Find.Storyteller.difficulty.threatScale * 100f / 2.8f;
+            float currentPoints;
             if (WinstonMod.settings.linearThreatScale)
             {
                 currentPoints = basePoints * (1 + currentWave <= 20 ?
@@ -246,7 +245,7 @@ namespace VSEWW
                     (float)Math.Pow(WinstonMod.settings.pointMultiplierAfter, currentWave - 20));
             }
 
-
+            currentPoints = Math.Max(currentPoints, 100f);
                 // Get point for this wave
                 var point = (WinstonMod.settings.enableMaxPoint ? Mathf.Min(currentPoints, WinstonMod.settings.maxPoints) : currentPoints) * nextRaidMultiplyPoints;
             nextRaidMultiplyPoints = 1f;
@@ -262,7 +261,7 @@ namespace VSEWW
             // Send raid
             nextRaidInfo.SendRaid(map, ticks);
             if (waveDelay != 0)
-                waveDelay = 0;
+                waveDelay = WinstonMod.settings.enableGraceDelay ? WinstonMod.settings.timeBetweenWaves * nextRaidInfo.parms.points / WinstonMod.settings.maxPoints : 0;
             waveCounter?.UpdateWindow();
             // Send allies if necessary
             if (nextRaidSendAllies)

@@ -49,14 +49,15 @@
   <VESWW.PawnsArriving>Прибытие пешек рейда...</VESWW.PawnsArriving>
   <!-- Settings -->
   <VESWW.ModName>Vanilla Storytellers Expanded - Winston Wave</VESWW.ModName>
+	<VESWW.EnableGraceDelay>Включить задержку после волны:</VESWW.EnableGraceDelay>
   <VESWW.TimeBeforeFirstWave>Время перед первой волной:</VESWW.TimeBeforeFirstWave>
   <VESWW.TimeBetweenWaves>Время между волнами:</VESWW.TimeBetweenWaves>
   <VESWW.TimeToDefeatWave>Максимальное количество дней для победы над волной:</VESWW.TimeToDefeatWave>
   <VESWW.MaxPoints>Максимальное число используемых поинтов:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Включить ограничение количества очков рейда:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Включить проверку самого раннего дня для рейда:</VESWW.EarliestRaidCheck>
-	<VESWW.noWaterRaid>Запретить приход рейдов из воды:</VESWW.noWaterRaid>
- <VESWW.DayMultiplier>Множитель дней:</VESWW.DayMultiplier>
+  <VESWW.noWaterRaid>Запретить приход рейдов из воды:</VESWW.noWaterRaid>
+  <VESWW.DayMultiplier>Множитель дней:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Включить линейный рост рейдпоинтов:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Нарисовать фон счетчика волн:</VESWW.DrawBackground>
   <VESWW.PointMultiplierBefore20>Множитель числа поинтов волн перед 20 волной:</VESWW.PointMultiplierBefore20>
@@ -90,7 +91,8 @@
   <VESWW.WCS>Счетчик волн</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Дней до прибытия первой волны.</VESWW.TimeBeforeFirstWaveTip>
-  <VESWW.TimeBetweenWavesTip>Дней между волнами, также зависит от уровня угрозы</VESWW.TimeBetweenWavesTip>
+	<VESWW.EnableGraceDelayTip>дополнительное время между волнами в зависимости от их размера.</VESWW.EnableGraceDelayTip>
+	<VESWW.TimeBetweenWavesTip>Дней между волнами, также зависит от уровня угрозы</VESWW.TimeBetweenWavesTip>
   <VESWW.TimeToDefeatWaveTip>Максимальное количество дней, в течение которых игрок должен победить волну. Если волна не побеждена в течение этого времени, готовится следующая волна, и награды не выдаются.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Максимальное количество поинтов, используемых в генерации рейдов.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Некоторые фракции не появятся в начале игры.</VESWW.EarliestRaidCheckTip>

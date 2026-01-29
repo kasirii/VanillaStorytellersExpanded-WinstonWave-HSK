@@ -49,13 +49,14 @@
   <VESWW.PawnsArriving>Raid pawns arriving...</VESWW.PawnsArriving>
   <!-- Settings -->
   <VESWW.ModName>Winston Wave</VESWW.ModName>
+	<VESWW.EnableGraceDelay>Enable grace delay after wave:</VESWW.EnableGraceDelay>
   <VESWW.TimeBeforeFirstWave>Time before first wave:</VESWW.TimeBeforeFirstWave>
   <VESWW.TimeBetweenWaves>Time between waves:</VESWW.TimeBetweenWaves>
   <VESWW.TimeToDefeatWave>Maximum days to deafeat a wave:</VESWW.TimeToDefeatWave>
   <VESWW.MaxPoints>Max threat points used:</VESWW.MaxPoints>
   <VESWW.EnableMaxPoints>Enable raid point cap:</VESWW.EnableMaxPoints>
   <VESWW.EarliestRaidCheck>Enable Earliest day to Raid Check:</VESWW.EarliestRaidCheck>
-	<VESWW.noWaterRaid>Forbid emerge from water arrive mod:</VESWW.noWaterRaid>
+  <VESWW.noWaterRaid>Forbid emerge from water arrive mod:</VESWW.noWaterRaid>
   <VESWW.DayMultiplier>Day multiplier:</VESWW.DayMultiplier>
   <VESWW.linearThreatScale>Enable Linear raidpoint growth:</VESWW.linearThreatScale>
   <VESWW.DrawBackground>Draw wave counter background:</VESWW.DrawBackground>
@@ -90,6 +91,7 @@
   <VESWW.WCS>Wave counter</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Number of days before the first wave arrive.</VESWW.TimeBeforeFirstWaveTip>
+	<VESWW.EnableGraceDelayTip>additional time between waves depending on wave size.</VESWW.EnableGraceDelayTip>
   <VESWW.TimeBetweenWavesTip>Number of days in between each wave, is also influenced by the threat scale.</VESWW.TimeBetweenWavesTip>
   <VESWW.TimeToDefeatWaveTip>Maximum number of days the player have to defeat a wave. If the wave isn't defeated in this time, the next wave is prepared and no rewards are given.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Maximum amount of points used in the raid generation.</VESWW.MaxPointsTip>

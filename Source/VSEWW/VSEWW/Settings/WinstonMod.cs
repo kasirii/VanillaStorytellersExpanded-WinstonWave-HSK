@@ -186,6 +186,10 @@ namespace VSEWW
             var waveSettingsLst = new Listing_Standard();
             waveSettingsLst.Begin(fullRect);
 
+            waveSettingsLst.Gap(12);
+            waveSettingsLst.CheckboxLabeled("VESWW.EnableGraceDelay".Translate(), ref settings.enableGraceDelay, tooltip: "VESWW.EnableGraceDelayTip".Translate());
+            waveSettingsLst.Gap(5);
+
             waveSettingsLst.Label("VESWW.TimeBeforeFirstWave".Translate(), tooltip: "VESWW.TimeBeforeFirstWaveTip".Translate());
             waveSettingsLst.TextFieldNumeric(ref settings.timeBeforeFirstWave, ref _timeBeforeFirstWave, 1f, 10f);
             waveSettingsLst.Gap(5);

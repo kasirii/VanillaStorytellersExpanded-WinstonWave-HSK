@@ -90,13 +90,13 @@
   <VESWW.WCS>Счетчик волн</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Дней до прибытия первой волны.</VESWW.TimeBeforeFirstWaveTip>
-  <VESWW.TimeBetweenWavesTip>Дней между волнами.</VESWW.TimeBetweenWavesTip>
+  <VESWW.TimeBetweenWavesTip>Дней между волнами, также зависит от уровня угрозы</VESWW.TimeBetweenWavesTip>
   <VESWW.TimeToDefeatWaveTip>Максимальное количество дней, в течение которых игрок должен победить волну. Если волна не побеждена в течение этого времени, готовится следующая волна, и награды не выдаются.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Максимальное количество поинтов, используемых в генерации рейдов.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Некоторые фракции не появятся в начале игры.</VESWW.EarliestRaidCheckTip>
   <VESWW.DayMultiplierTip>Ускоряет прогрессию фракций, больше значение раньше придут.</VESWW.DayMultiplierTip>
   <VESWW.linearThreatScaleTip>Вместо экспоненциального роста будет применяться линейный рост с приращением = 100*(WavePointsMultiplayer):</VESWW.linearThreatScaleTip>
-  <VESWW.PointMultiplierBefore20Tip>Множитель числа поинтов волн перед 20 волной.</VESWW.PointMultiplierBefore20Tip>
+  <VESWW.PointMultiplierBefore20Tip>Множитель числа поинтов волн перед 20 волной. На поинты также влияет уровень угрозы.</VESWW.PointMultiplierBefore20Tip>
   <VESWW.PointMultiplierAfter20Tip>Множитель числа поинтов волн после 20 волны.</VESWW.PointMultiplierAfter20Tip>
   <VESWW.EnableStatsTip>Следующие статы увеличены: natural healing factor, общая скорость работы, скорость исследований и скорость посадки растений.</VESWW.EnableStatsTip>
   <VESWW.RandomRewardModTip>С включением этой опции окно с наградой перестанет отображаться. Вы всегда будете получать случайную награду.</VESWW.RandomRewardModTip>

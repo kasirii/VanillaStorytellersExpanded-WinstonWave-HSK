@@ -90,13 +90,13 @@
   <VESWW.WCS>Wave counter</VESWW.WCS>
   <!-- Settings tooltips -->
   <VESWW.TimeBeforeFirstWaveTip>Number of days before the first wave arrive.</VESWW.TimeBeforeFirstWaveTip>
-  <VESWW.TimeBetweenWavesTip>Number of days in between each wave.</VESWW.TimeBetweenWavesTip>
+  <VESWW.TimeBetweenWavesTip>Number of days in between each wave, is also influenced by the threat scale.</VESWW.TimeBetweenWavesTip>
   <VESWW.TimeToDefeatWaveTip>Maximum number of days the player have to defeat a wave. If the wave isn't defeated in this time, the next wave is prepared and no rewards are given.</VESWW.TimeToDefeatWaveTip>
   <VESWW.MaxPointsTip>Maximum amount of points used in the raid generation.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Some factions will not appear early.</VESWW.EarliestRaidCheckTip>
   <VESWW.DayMultiplierTip>Speeds up factions' progression, the higher the value, the sooner they'll arrive.</VESWW.DayMultiplierTip>
   <VESWW.linearThreatScaleTip>Instead of exponential, linear growth with slope = 100*(WavePointsMultiplayer) will be applied:</VESWW.linearThreatScaleTip>
-  <VESWW.PointMultiplierBefore20Tip>Raid point multiplier used before the wave 20.</VESWW.PointMultiplierBefore20Tip>
+  <VESWW.PointMultiplierBefore20Tip>Raid point multiplier used before the wave 20. Raid points also affected by threat scale.</VESWW.PointMultiplierBefore20Tip>
   <VESWW.PointMultiplierAfter20Tip>Raid point multiplier used after the wave 20.</VESWW.PointMultiplierAfter20Tip>
   <VESWW.EnableStatsTip>Stats increased are: natural healing factor, global work speed, research speed and plant growth speed.</VESWW.EnableStatsTip>
   <VESWW.RandomRewardModTip>With this enabled, the reward window will never be showed. You will always get a random reward.</VESWW.RandomRewardModTip>

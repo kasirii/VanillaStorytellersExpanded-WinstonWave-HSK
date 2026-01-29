@@ -229,16 +229,26 @@ namespace VSEWW
         /// </summary>
         internal float GetNextWavePoint()
         {
-            if (currentPoints < 100)
-                currentPoints = WinstonMod.settings.linearThreatScale ? 0 : 100;
-            // Apply wave multiplier
+            //base points balanced over 280% threat scale option
+            float basePoints = Find.Storyteller.difficulty.threatScale * 100f / 2.8f;
             if (WinstonMod.settings.linearThreatScale)
-                currentPoints += 100 * ( currentWave <= 20 ? WinstonMod.settings.pointMultiplierBefore : WinstonMod.settings.pointMultiplierAfter );
+            {
+                currentPoints = basePoints * (1 + currentWave <= 20 ?
+                    WinstonMod.settings.pointMultiplierBefore * currentWave :
+                    WinstonMod.settings.pointMultiplierBefore * 20 +
+                    WinstonMod.settings.pointMultiplierAfter * (currentWave - 20));
+            }
             else
-                currentPoints *= currentWave <= 20 ? WinstonMod.settings.pointMultiplierBefore : WinstonMod.settings.pointMultiplierAfter;
+            {
+                currentPoints = basePoints * (currentWave <= 20 ? 
+                    (float)Math.Pow(WinstonMod.settings.pointMultiplierBefore, currentWave) :
+                    (float)Math.Pow(WinstonMod.settings.pointMultiplierBefore, 20) *
+                    (float)Math.Pow(WinstonMod.settings.pointMultiplierAfter, currentWave - 20));
+            }
 
-            // Get point for this wave
-            var point = (WinstonMod.settings.enableMaxPoint ? Mathf.Min(currentPoints, WinstonMod.settings.maxPoints) : currentPoints) * nextRaidMultiplyPoints;
+
+                // Get point for this wave
+                var point = (WinstonMod.settings.enableMaxPoint ? Mathf.Min(currentPoints, WinstonMod.settings.maxPoints) : currentPoints) * nextRaidMultiplyPoints;
             nextRaidMultiplyPoints = 1f;
 
             return point;

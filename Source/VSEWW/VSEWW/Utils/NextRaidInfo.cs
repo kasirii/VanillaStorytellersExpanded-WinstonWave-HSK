@@ -49,7 +49,7 @@ namespace VSEWW
 
             var ticks = Find.TickManager.TicksGame;
             // Number of day(s) before next wave
-            var days = wave > 1 ? WinstonMod.settings.timeBetweenWaves : WinstonMod.settings.timeBeforeFirstWave;
+            var days = wave > 1 ? WinstonMod.settings.timeBetweenWaves / Find.Storyteller.difficulty.threatScale : WinstonMod.settings.timeBeforeFirstWave;
             // Set needed values
             parms = new IncidentParms()
             {

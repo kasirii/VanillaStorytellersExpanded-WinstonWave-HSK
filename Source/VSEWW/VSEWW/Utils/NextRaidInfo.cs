@@ -277,7 +277,7 @@ namespace VSEWW
                 var m = allModifiers[i];
                 if (WinstonMod.settings.modifierDefs.Contains(m.defName))
                     continue;
-                if (m.pointMultiplier > 0 && (m.pointMultiplier * parms.points) > WinstonMod.settings.maxPoints)
+                if (m.pointMultiplier > 0 && WinstonMod.settings.enableMaxPoint && (m.pointMultiplier * parms.points) > WinstonMod.settings.maxPoints)
                     continue;
                 if (!parms.faction.def.humanlikeFaction
                     && (!m.allowedWeaponDef.NullOrEmpty()

@@ -260,8 +260,15 @@ namespace VSEWW
         {
             // Send raid
             nextRaidInfo.SendRaid(map, ticks);
+            //base additional wave delay 
             if (waveDelay != 0)
-                waveDelay = WinstonMod.settings.enableGraceDelay ? WinstonMod.settings.timeBetweenWaves * nextRaidInfo.parms.points / WinstonMod.settings.maxPoints : 0;
+                waveDelay = WinstonMod.settings.enableGraceDelay ?
+                    (
+                        WinstonMod.settings.timeBetweenWaves * //base delay
+                        (nextRaidInfo.waveType == 1 ? 1.5f : 1) * //boss multiplier
+                        (2 * nextRaidInfo.parms.points / WinstonMod.settings.maxPoints) * //point multiplier
+                        (1 / Find.Storyteller.difficulty.threatScale) //difficulty multiplier
+                    ) : 0;
             waveCounter?.UpdateWindow();
             // Send allies if necessary
             if (nextRaidSendAllies)

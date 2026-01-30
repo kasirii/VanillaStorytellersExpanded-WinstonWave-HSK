@@ -203,15 +203,12 @@ namespace VSEWW
             waveSettingsLst.GapLine(12);
 
             waveSettingsLst.Gap(12);
-            waveSettingsLst.CheckboxLabeled("VESWW.EnableMaxPoints".Translate(), ref settings.enableMaxPoint);
+            waveSettingsLst.CheckboxLabeled("VESWW.EnableMaxPoints".Translate(), ref settings.enableMaxPoint, tooltip: "VESWW.EnableMaxPointsTip".Translate());
             waveSettingsLst.Gap(5);
 
-            if (settings.enableMaxPoint)
-            {
-                waveSettingsLst.Label("VESWW.MaxPoints".Translate(), tooltip: "VESWW.MaxPointsTip".Translate());
-                waveSettingsLst.IntEntry(ref settings.maxPoints, ref _maxPoints, 10);
-                waveSettingsLst.Gap(5);
-            }
+            waveSettingsLst.Label("VESWW.MaxPoints".Translate(), tooltip: "VESWW.MaxPointsTip".Translate());
+            waveSettingsLst.IntEntry(ref settings.maxPoints, ref _maxPoints, 10);
+            waveSettingsLst.Gap(5);
 
             waveSettingsLst.Gap(12);
             waveSettingsLst.CheckboxLabeled("VESWW.EarliestRaidCheck".Translate(), ref settings.earliestRaidCheck, tooltip: "VESWW.EarliestRaidCheckTip".Translate());

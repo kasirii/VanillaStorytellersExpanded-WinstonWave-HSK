@@ -109,6 +109,7 @@ namespace VSEWW
                 if (reward.waveModifier.delayBy != 0)
                 {
                     mapComp.waveDelay += reward.waveModifier.delayBy;
+                    //for calls from debug
                     if (mapComp.nextRaidInfo.atTick < Find.TickManager.TicksGame + reward.waveModifier.delayBy * 60000)
                         mapComp.nextRaidInfo.atTick += reward.waveModifier.delayBy * 60000;
                 }

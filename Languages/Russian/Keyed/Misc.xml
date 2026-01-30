@@ -94,7 +94,8 @@
 	<VESWW.EnableGraceDelayTip>дополнительное время между волнами в зависимости от их размера.</VESWW.EnableGraceDelayTip>
 	<VESWW.TimeBetweenWavesTip>Дней между волнами, также зависит от уровня угрозы</VESWW.TimeBetweenWavesTip>
   <VESWW.TimeToDefeatWaveTip>Максимальное количество дней, в течение которых игрок должен победить волну. Если волна не побеждена в течение этого времени, готовится следующая волна, и награды не выдаются.</VESWW.TimeToDefeatWaveTip>
-  <VESWW.MaxPointsTip>Максимальное количество поинтов, используемых в генерации рейдов.</VESWW.MaxPointsTip>
+	<VESWW.EnableMaxPointsTip>Максимальное количество поинтов, используемых в генерации рейдов.</VESWW.EnableMaxPointsTip>
+	<VESWW.MaxPointsTip>Максимальное количество поинтов также используется для балансировки сложности.</VESWW.MaxPointsTip>
   <VESWW.EarliestRaidCheckTip>Некоторые фракции не появятся в начале игры.</VESWW.EarliestRaidCheckTip>
   <VESWW.DayMultiplierTip>Ускоряет прогрессию фракций, больше значение раньше придут.</VESWW.DayMultiplierTip>
   <VESWW.linearThreatScaleTip>Вместо экспоненциального роста будет применяться линейный рост с приращением = 100*(WavePointsMultiplayer):</VESWW.linearThreatScaleTip>

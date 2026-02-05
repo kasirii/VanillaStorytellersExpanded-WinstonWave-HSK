@@ -270,7 +270,7 @@ namespace VSEWW
                 if (skipMin && pr.minCombatPower > 0) pawnChoices.RemoveAll(p => p.combatPower < pr.minCombatPower);
                 if (pr.maxCombatPower > 0) pawnChoices.RemoveAll(p => p.combatPower > pr.maxCombatPower);
 
-                pawnChoices.RemoveAll(p => p.defaultFactionType == FactionDefOf.Entities);
+                pawnChoices.RemoveAll(p => p.defaultFactionDef == FactionDefOf.Entities);
                 pawnChoices.RemoveAll(p => p.RaceProps.IsAnomalyEntity || p.race == InternalDefOf.CreepJoiner);
 
 

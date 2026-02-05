@@ -11,3 +11,4 @@ C:\Users\snail\source\repos\kasirii\VanillaStorytellersExpanded-WinstonWave-HSK\
 C:\Users\snail\source\repos\kasirii\VanillaStorytellersExpanded-WinstonWave-HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.AssemblyReference.cache
 C:\Users\snail\source\repos\kasirii\VanillaStorytellersExpanded-WinstonWave-HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.csproj.CoreCompileInputs.cache
 C:\Users\snail\source\repos\kasirii\VanillaStorytellersExpanded-WinstonWave-HSK\Source\VSEWW\VSEWW\obj\Debug\VSEWW.dll
+C:\Users\snail\source\repos\kasirii\VanillaStorytellersExpanded-WinstonWave-HSK\1.6\Assemblies\VSEWW.dll

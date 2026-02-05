@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -15,7 +16,6 @@ namespace VSEWW
         public NextRaidInfo nextRaidInfo;
 
         public int currentWave = 1;
-        private float modifierChance = 0;
         public bool nextRaidSendAllies = false;
         public float nextRaidMultiplyPoints = 1f;
         public float waveDelay = 0;
@@ -40,7 +40,7 @@ namespace VSEWW
                 if (preNewVersion)
                 {
                     preNewVersion = false;
-                    Log.Warning("[VSEWW] pre new version");
+                    Log.Message("[VSEWW] pre new version");
                     return true;
                 }
 
@@ -76,7 +76,6 @@ namespace VSEWW
         public override void ExposeData()
         {
             Scribe_Values.Look(ref currentWave, "currentWave");
-            Scribe_Values.Look(ref modifierChance, "modifierChance");
             Scribe_Values.Look(ref nextRaidSendAllies, "nextRaidSendAllies");
             Scribe_Values.Look(ref nextRaidMultiplyPoints, "nextRaidMultiplyPoints");
             Scribe_Values.Look(ref waveDelay, "waveDelay");          
@@ -90,11 +89,48 @@ namespace VSEWW
             Scribe_Deep.Look(ref nextRaidInfo, "nextRaidInfo");
         }
 
+        public void SaveWaveGlobal()
+        {
+            var worldComponent_VSEWW = Find.World.GetComponent<WorldComponent_VSEWW>();
+            worldComponent_VSEWW.currentWave = currentWave;
+            worldComponent_VSEWW.nextRaidSendAllies = nextRaidSendAllies;
+            worldComponent_VSEWW.nextRaidMultiplyPoints = nextRaidMultiplyPoints;
+            worldComponent_VSEWW.remainTicks = nextRaidInfo.atTick - Find.TickManager.TicksGame;
+            worldComponent_VSEWW.shouldRestore = true;
+        }
+
+        private void RestoreWaveGlobal()
+        {
+            var worldComponent_VSEWW = Find.World.GetComponent<WorldComponent_VSEWW>();
+            currentWave = worldComponent_VSEWW.currentWave;
+            nextRaidSendAllies = worldComponent_VSEWW.nextRaidSendAllies;
+            nextRaidMultiplyPoints = worldComponent_VSEWW.nextRaidMultiplyPoints;
+            int remainTicks = worldComponent_VSEWW.remainTicks;
+            worldComponent_VSEWW.shouldRestore = false;
+            preNewVersion = false;
+
+            nextRaidInfo?.StopIncidentModifiers();
+            nextRaidInfo = new NextRaidInfo();
+            nextRaidInfo.Init(currentWave, GetNextWavePoint(), map);
+            nextRaidInfo.atTick = Find.TickManager.TicksGame + remainTicks;
+
+            waveCounter?.UpdateWindow();
+            waveCounter?.WaveTip();
+        }
+
+        public override void MapRemoved()
+        {
+            SaveWaveGlobal();
+            base.MapRemoved();
+        }
+
         public override void FinalizeInit()
         {
             var mapParent = map.Parent;
             canReceiveWave = map.Biome.defName != "OuterSpaceBiome" && (mapParent == null || mapParent.def.canBePlayerHome) && map.ParentFaction == Faction.OfPlayer;
             nextTick = Find.TickManager.TicksGame + winstonTick;
+            if (Find.World.GetComponent<WorldComponent_VSEWW>().shouldRestore)
+                RestoreWaveGlobal();
         }
 
         public override void MapComponentTick()

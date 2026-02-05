@@ -20,7 +20,7 @@ namespace VSEWW
 
             var raceProps = killed.RaceProps;
             if (raceProps.Humanlike || raceProps.IsMechanoid)
-                Find.World?.GetComponent<WorldComponent_KillCounter>()?.IncrementCounter();
+                Find.World?.GetComponent<WorldComponent_VSEWW>()?.IncrementCounter();
         }
     }
 }

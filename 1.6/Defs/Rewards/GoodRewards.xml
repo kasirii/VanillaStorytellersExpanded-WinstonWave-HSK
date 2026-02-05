@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodPawnJoins</defName>
+    <texPath>UI/Rewards/RewardPawnJoins_Good</texPath>
+    <label>Colonists join</label>
+    <description>A group of 3 colonists worth a minimum 100 and up to 175 combat points joins the colony</description>
+    <category>Good</category>
+	<type>Misc</type>
+    <randomPawns>
+      <li>
+        <minCombatPower>100</minCombatPower>
+        <maxCombatPower>175</maxCombatPower>
+        <count>3</count>
+      </li>
+    </randomPawns>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodResourceDrop</defName>
+    <texPath>UI/Rewards/RewardResourceDrop_Good</texPath>
+    <label>Resource drop</label>
+    <description>Cargo pods drop 500 wood, 500 steel, 200 Ferrotitanium, 15 Mechanism, 30 components, 15 Electronic Components</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>WoodLog</thing>
+        <count>500</count>
+      </li>
+      <li>
+        <thing>Steel</thing>
+        <count>500</count>
+      </li>
+      <li>
+        <thing>Titanium</thing>
+        <count>200</count>
+      </li>
+      <li>
+        <thing>ComponentIndustrial</thing>
+        <count>30</count>
+      </li>
+      <li>
+        <thing>Mechanism</thing>
+        <count>15</count>
+      </li>
+      <li>
+        <thing>ElectronicComponents</thing>
+        <count>15</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodComponentDrop</defName>
+    <texPath>UI/Rewards/RewardComponentsDrop_Good</texPath>
+    <label>Components drop</label>
+    <description>Cargo pods drop 60 components, 15 advanced components, 30 Mechanism, 15 advanced Mechanism, 5 Integrated Circuits</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>ComponentIndustrial</thing>
+        <count>60</count>
+      </li>
+      <li>
+        <thing>ComponentAdvanced</thing>
+        <count>15</count>
+      </li>
+      <li>
+        <thing>Mechanism</thing>
+        <count>30</count>
+      </li>
+      <li>
+        <thing>AdvMechanism</thing>
+        <count>15</count>
+      </li>
+      <li>
+        <thing>Electronics</thing>
+        <count>5</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodFoodAndMedicineDrop</defName>
+    <texPath>UI/Rewards/RewardFoodAndMedicineDrop_Good</texPath>
+    <label>Food and medicine drop</label>
+    <description>Cargo pods drop 100 survival meals and 50 medicine</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>MealSurvivalPack</thing>
+        <count>100</count>
+      </li>
+      <li>
+        <thing>MedicineIndustrial</thing>
+        <count>50</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodFuelDrop</defName>
+    <texPath>UI/Rewards/RewardFuelDrop_Good</texPath>
+    <label>Fuel drop</label>
+    <description>Cargo pods drop 800 Coal, 800 wood and 800 chemfuel</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>Coal</thing>
+        <count>800</count>
+      </li>
+      <li>
+        <thing>WoodLog</thing>
+        <count>800</count>
+      </li>
+      <li>
+        <thing>Chemfuel</thing>
+        <count>800</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodWeaponsDrop</defName>
+    <texPath>UI/Rewards/RewardWeaponsDrop_Good</texPath>
+    <label>Good weapons drop</label>
+    <description>Cargo pods 3 random Industrial weapons, quality is Good</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>Pistols</li>
+          <li>Shotguns</li>
+          <li>SMGs</li>
+        </thingCategories>
+        <excludeThingCategories>
+          <li MayRequire="CETeam.CombatExtended">Ammo</li>
+        </excludeThingCategories>
+        <quality>Good</quality>
+        <count>2</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>MeleeWeapon_Knife</li>
+          <li>MeleeWeapon_Bonesaw</li>
+          <li>MeleeWeapon_Machete</li>
+          <li>MeleeWeapon_Monkeywrench</li>
+          <li>MeleeWeapon_Cleaver</li>
+        </randomFrom>
+        <quality>Good</quality>
+        <count>1</count>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodArmorDrop</defName>
+    <texPath>UI/Rewards/RewardArmorDrop_Good</texPath>
+    <label>Good armor drop</label>
+    <description>Cargo pods contain a set of medieval armor, quality is Good</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <randomFrom>
+          <li>Helmet_Kettlehat</li>
+          <li>Helmet_Nasal</li>
+          <li>Helmet_NorbalChain</li>
+          <li>Helmet_Bascinet</li>
+          <li>Helmet_Domed</li>
+          <li>Helmet_Sallet</li>
+        </randomFrom>
+        <quality>Good</quality>
+        <count>1</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>Armor_Hauberk</li>
+          <li>Armor_HauberkScaled</li>
+          <li>Armor_CloakedHauberk</li>
+          <li>Armor_PlateArmor</li>
+		  <li>Armor_PlateVest</li>
+		  <li>Armor_Brigandine</li>
+		</randomFrom>
+        <quality>Good</quality>
+        <count>1</count>
+      </li>
+      <li>
+        <randomFrom>
+          <li>Shield_Buckler</li>
+          <li>Shield_Medieval</li>
+        </randomFrom>
+        <quality>Good</quality>
+        <count>1</count>
+      </li>
+		<li>
+			<randomFrom>
+				<li>Boots_Plated</li>
+				<li>Boots_Metal</li>
+			</randomFrom>
+			<quality>Good</quality>
+			<count>1</count>
+		</li>
+		<li>
+			<randomFrom>
+				<li>Gloves_Plated</li>
+				<li>Gloves_Gauntlets</li>
+			</randomFrom>
+			<quality>Good</quality>
+			<count>1</count>
+		</li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodCashDrop</defName>
+    <texPath>UI/Rewards/RewardCashDrop_Good</texPath>
+    <label>Cash</label>
+    <description>Cargo pods drop 5000 silver and 250 gold</description>
+    <category>Good</category>
+	<type>Resources</type>
+    <items>
+      <li>
+        <thing>Silver</thing>
+        <count>5000</count>
+      </li>
+      <li>
+        <thing>Gold</thing>
+        <count>250</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_DelayBy7</defName>
+    <texPath>UI/Rewards/RewardDelayWave_Good</texPath>
+    <label>Delay next wave</label>
+	<type>Combat</type>
+    <description>Next wave is delayed by 7 days</description>
+    <category>Good</category>
+    <waveModifier>
+      <delayBy>7</delayBy>
+    </waveModifier>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_CombatAnimalDrop</defName>
+    <texPath>UI/Rewards/RewardCombatAnimalDrop_Good</texPath>
+    <label>Combat Animal drop</label>
+	<type>Combat</type>
+    <description>Cargo pod drops 5 random, tamed combat animals</description>
+    <category>Good</category>
+    <randomPawns>
+      <li>
+        <tradeTag>AnimalFighter</tradeTag>
+        <intelligence>Animal</intelligence>
+        <count>5</count>
+        <excludeInsectoid>true</excludeInsectoid>
+      </li>
+    </randomPawns>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodTextileDrop</defName>
+    <texPath>UI/Rewards/RewardTextileDrop_Good</texPath>
+    <label>Textile drop</label>
+    <description>Cargo pod drops 1000 pieces of leather and textile</description>
+    <category>Good</category>
+	<type>Resources</type>
+    <items>
+      <li>
+        <thing>Cloth</thing>
+        <count>1000</count>
+      </li>
+      <li>
+        <thing>Leather_Plain</thing>
+        <count>1000</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodSkillBoost</defName>
+    <texPath>UI/Rewards/RewardsSkillBoost_Good</texPath>
+    <label>Skill boost</label>
+    <description>Improve every skill of every colonist under your control by 1</description>
+    <category>Good</category>
+	<type>Misc</type>
+    <boostSkillBy>1</boostSkillBy>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodReseachBoost</defName>
+    <texPath>UI/Rewards/RewardResearchBoost_Good</texPath>
+    <label>Research boost</label>
+	<type>Misc</type>
+    <description>Instantly research 5 random research projects you meet prerequisites for</description>
+    <category>Good</category>
+    <unlockXResearch>5</unlockXResearch>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_Weaken50</defName>
+    <texPath>UI/Rewards/RewardWeakenNextWave_Good</texPath>
+    <label>Weaken next wave</label>
+    <description>Next wave only has 50% combat points it would normally have</description>
+    <category>Good</category>
+	<type>Combat</type>
+    <waveModifier>
+      <weakenBy>0.5</weakenBy>
+    </waveModifier>
+  </VSEWW.RewardDef>
+
+  <!--<VSEWW.RewardDef>
+    <defName>VSEWW_Allies</defName>
+    <texPath>UI/Rewards/RewardAllies_Good</texPath>
+    <label>Allies!</label>
+	<type>Combat</type>
+    <description>Next wave also brings allies that are 2x the regular size, to help you</description>
+    <category>Good</category>
+    <waveModifier>
+      <allies>true</allies>
+    </waveModifier>
+  </VSEWW.RewardDef>-->
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodArchotechArtifactsDrop</defName>
+    <texPath>UI/Rewards/RewardArchotechArtifactDrop_Good</texPath>
+    <label>Archotech artifacts drop</label>
+	<type>Misc</type>
+    <description>Receive 5 random archotech items (can be uninstalled structures)</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>Artifacts</li>
+        </thingCategories>
+        <count>2</count>
+      </li>
+		<li>
+			<thingCategories>
+				<li>Artifacts</li>
+			</thingCategories>
+			<count>2</count>
+		</li>
+		<li>
+			<thingCategories>
+				<li>Artifacts</li>
+			</thingCategories>
+			<count>1</count>
+		</li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_OrbitalTargeterPowerBeamDrop</defName>
+    <texPath>UI/Rewards/RewardOrbitalBeamDrop_Good</texPath>
+    <label>Orbital beam targeter</label>
+	<type>Combat</type>
+    <description>Receive an orbital beam targeter</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>OrbitalTargeterPowerBeam</thing>
+        <count>1</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_OrbitalTargeterBombardmentDrop</defName>
+    <texPath>UI/Rewards/RewardOrbitalBombardmentDrop_Good</texPath>
+    <label>Orbital bombardment targeter</label>
+	<type>Combat</type>
+    <description>Receive an orbital bombardment targeter</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>OrbitalTargeterBombardment</thing>
+        <count>1</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_TornadoGeneratorDrop</defName>
+    <texPath>UI/Rewards/RewardTornadoGeneratorDrop_Good</texPath>
+    <label>Tornado generator</label>
+	<type>Combat</type>
+    <description>Receive a tornado generator</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>TornadoGenerator</thing>
+        <count>1</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodDrugsDrop</defName>
+    <texPath>UI/Rewards/RewardDrugsDrop_Good</texPath>
+    <label>Drugs drop</label>
+	<type>Resources</type>
+    <description>Receive 10 Ambrosia, 10 psychite tea, 20 beer, 20 smokeleaf joints, 20 flake, 20 yayo, 20 wake-up and 20 go juice</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>Ambrosia</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>PsychiteTea</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>Beer</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>SmokeleafJoint</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>Flake</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>Yayo</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>WakeUp</thing>
+        <count>20</count>
+      </li>
+      <li>
+        <thing>GoJuice</thing>
+        <count>20</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodProstheticsDrop</defName>
+    <texPath>UI/Rewards/RewardProsthethicsDrop_Good</texPath>
+    <label>Prosthetics drop</label>
+	<type>Misc</type>
+    <description>Cargo pod drops 5 random bionic prosthetics</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>BodyPartsBionic</li>
+        </thingCategories>
+        <count>5</count>
+        <quality MayRequire="rebelrabbit.qualitybionics">Good</quality>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_RandomExcellentDrop</defName>
+    <texPath>UI/Rewards/RewardRandom_Excellent</texPath>
+    <label>Random Excellent reward</label>
+	<type>Misc</type>
+    <description>Instead of picking up a specific Good-level reward, obtain a completely random Excellent-level reward</description>
+    <category>Good</category>
+    <sendRewardOf>Excellent</sendRewardOf>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_OrbitalTraderArrival</defName>
+    <texPath>UI/Rewards/RewardOrbitalTraderArrival_Good</texPath>
+    <label>Orbital Trader Arrival</label>
+	<type>Misc</type>
+    <description>Send a random orbital trader</description>
+    <category>Good</category>
+    <incidentDef>OrbitalTraderArrival</incidentDef>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodTurretDrop</defName>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
+    <label>Turret drop</label>
+    <description>Cargo pod drops 1 M240B and 300 7.62 ammo</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>Turret_M240B</thing>
+        <count>1</count>
+      </li>
+      <li>
+        <thing>Ammo_762x51mmNATO_FMJ</thing>
+        <count>300</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
+    <defName>VSEWW_GoodParabellumTurret</defName>
+    <label>Parabellum turret drop</label>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
+    <description>Cargo pod drops 1 Vickers and 300 303British ammo</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>Turret_Vickers</thing>
+        <count>1</count>
+      </li>
+      <li>
+        <thing>Ammo_303British_FMJ</thing>
+        <count>300</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+  
+  <VSEWW.RewardDef MayRequire="XxNelsonxX.Parabellum">
+    <defName>VSEWW_GoodParabellumCannon</defName>
+    <label>Parabellum cannon drop</label>
+    <texPath>UI/Rewards/RewardMiniTurretDrop_Good</texPath>
+    <description>Cargo pod drops 1 Parabellum 3.7cm cannons and 100 3.7cm shells</description>
+    <category>Good</category>
+    <items>
+      <li>
+        <thing>Turret_PaK36ATG</thing>
+        <count>1</count>
+      </li>
+      <li>
+        <thing>Ammo_37mmCannonShell_HE</thing>
+        <count>100</count>
+      </li>
+    </items>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodAmmoDrop</defName>
+    <texPath>UI/Rewards/RewardAmmo_Good</texPath>
+    <label>Ammo drop</label>
+    <description>Cargo pods drop 1280 random regular ammo and 50 simple grenades</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+		  <li>Ammo9x19mmPara</li>
+		  <li>Ammo45ACP</li>
+		  <li>Ammo12Gauge</li>
+		  <li>Ammo303British</li>
+		  <li>Ammo556x45mmNATO</li>
+		  <li>Ammo762x39mmSoviet</li>
+          <!--<li>Ammo762x54mmR</li>-->
+		  <li>Ammo762x51mmNATO</li>
+		  <li>Ammo50BMG</li>
+        </thingCategories>
+        <count>1280</count>
+      </li>
+      <li>
+        <randomFrom>
+            <li>Weapon_GrenadeHighExplosive</li>
+            <li>Weapon_GrenadeFrag</li>
+            <li>Weapon_GrenadeEMP</li>
+            <li>Weapon_GrenadeFlame</li>
+        </randomFrom>
+        <count>50</count>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+  <VSEWW.RewardDef>
+    <defName>VSEWW_GoodRugsDrop</defName>
+    <texPath>UI/Rewards/RewardTextileDrop_Good</texPath>
+    <label>Good Rugs drop</label>
+    <description>Cargo pods 3 random rugs, quality is Good</description>
+    <category>Good</category>
+    <randomItems>
+      <li>
+        <thingCategories>
+          <li>BuildingsRugs</li>
+        </thingCategories>
+        <quality>Good</quality>
+        <count>3</count>
+      </li>
+    </randomItems>
+  </VSEWW.RewardDef>
+
+</Defs>

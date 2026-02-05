@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\snail\\Desktop\\VanillaStorytellersExpanded-WinstonWave_HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj": {}
+    "C:\\Users\\snail\\source\\repos\\kasirii\\VanillaStorytellersExpanded-WinstonWave-HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj": {}
   },
   "projects": {
-    "C:\\Users\\snail\\Desktop\\VanillaStorytellersExpanded-WinstonWave_HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj": {
+    "C:\\Users\\snail\\source\\repos\\kasirii\\VanillaStorytellersExpanded-WinstonWave-HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\snail\\Desktop\\VanillaStorytellersExpanded-WinstonWave_HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj",
+        "projectUniqueName": "C:\\Users\\snail\\source\\repos\\kasirii\\VanillaStorytellersExpanded-WinstonWave-HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj",
         "projectName": "VSEWW",
-        "projectPath": "C:\\Users\\snail\\Desktop\\VanillaStorytellersExpanded-WinstonWave_HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj",
+        "projectPath": "C:\\Users\\snail\\source\\repos\\kasirii\\VanillaStorytellersExpanded-WinstonWave-HSK\\Source\\VSEWW\\VSEWW\\VSEWW.csproj",
         "packagesPath": "C:\\Users\\snail\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\snail\\Desktop\\VanillaStorytellersExpanded-WinstonWave_HSK\\Source\\VSEWW\\VSEWW\\obj\\",
+        "outputPath": "C:\\Users\\snail\\source\\repos\\kasirii\\VanillaStorytellersExpanded-WinstonWave-HSK\\Source\\VSEWW\\VSEWW\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "UsingMicrosoftNETSdk": false,
@@ -46,7 +46,7 @@
           "dependencies": {
             "Krafs.Rimworld.Ref": {
               "target": "Package",
-              "version": "[1.5.4409, )"
+              "version": "[1.6.4633, )"
             },
             "Lib.Harmony": {
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",

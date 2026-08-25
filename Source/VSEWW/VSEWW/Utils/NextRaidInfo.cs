@@ -79,7 +79,8 @@ namespace VSEWW
         private Faction RandomEnnemyFaction(float points)
         {
             var allFactions = Find.FactionManager.AllFactions;
-            var factions = new List<Faction>();            
+            var factions = new List<Faction>();
+
             foreach (var f in allFactions)
             {
                 if ((WinstonMod.settings.excludedFactionDefs == null || !WinstonMod.settings.excludedFactionDefs.Contains(f.def.defName))
@@ -93,9 +94,7 @@ namespace VSEWW
                         || !WinstonMod.settings.earliestRaidCheck)
                     && f.def.pawnGroupMakers != null
                     && f.def.pawnGroupMakers.Any(p => p.kindDef == PawnGroupKindDefOf.Combat && points <= p.maxTotalPoints)
-                    && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat)
-                    && ((map.Tile.LayerDef == PlanetLayerDefOf.Orbit)
-                        != (f.def.layerWhitelist?.Contains(PlanetLayerDefOf.Orbit) == true) == false))
+                    && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat))
                 {
                     factions.Add(f);
                 }
@@ -136,8 +135,7 @@ namespace VSEWW
             if (parms.raidStrategy == null)
                 Startup.normalStrategies.FindAll(s => CanUseStrategy(s)).TryRandomElementByWeight(d => d.Worker.SelectionWeightForFaction(map, parms.faction, parms.points), out parms.raidStrategy);
             
-            if (parms.raidArrivalModeForQuickMilitaryAid && !DefDatabase<PawnsArrivalModeDef>.AllDefs.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => d.forQuickMilitaryAid)).Any<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => (double)d.Worker.GetSelectionWeight(parms) > 0.0))
-                || parms.faction.def.arrivalModeWhitelist.Contains(PawnsArrivalModeDefOf.EdgeDrop))
+            if (parms.raidArrivalModeForQuickMilitaryAid && !DefDatabase<PawnsArrivalModeDef>.AllDefs.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => d.forQuickMilitaryAid)).Any<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => (double)d.Worker.GetSelectionWeight(parms) > 0.0)))
             {
                 parms.raidArrivalMode = (double)Rand.Value < 0.60000002384185791 ? PawnsArrivalModeDefOf.EdgeDrop : PawnsArrivalModeDefOf.CenterDrop;
             }
@@ -145,12 +143,12 @@ namespace VSEWW
             {
                 if (parms.raidStrategy == null)
                 {
-                    Log.Error("[VSEWW] Parms raidStrategy was null but shouldn't be. Defaulting to ImmediateAttack.");
+                    Log.Error("parms raidStrategy was null but shouldn't be. Defaulting to ImmediateAttack.");
                     parms.raidStrategy = RaidStrategyDefOf.ImmediateAttack;
                 }
                 if (parms.raidStrategy.arriveModes.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(x => x.Worker.CanUseWith(parms))).TryRandomElementByWeight<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, float>)(x => x.Worker.GetSelectionWeight(parms)), out parms.raidArrivalMode))
                     return;
-                Log.Error("[VSEWW] Could not resolve arrival mode for raid. Defaulting to EdgeWalkIn. parms=" + (object)parms);
+                Log.Error("Could not resolve arrival mode for raid. Defaulting to EdgeWalkIn. parms=" + (object)parms);
                 parms.raidArrivalMode = PawnsArrivalModeDefOf.EdgeWalkIn;
             }
             if (WinstonMod.settings.noWaterRaid && parms.raidArrivalMode == PawnsArrivalModeDefOf.EmergeFromWater)
@@ -180,7 +178,7 @@ namespace VSEWW
             outPawns = new HashSet<Pawn>();
             if (raidPawns.NullOrEmpty())
             {
-                parms.points = IncidentWorker_Raid.AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, PawnGroupKindDefOf.Combat, map, parms.raidAgeRestriction);
+                parms.points = IncidentWorker_Raid.AdjustedRaidPoints(parms.points, parms.raidArrivalMode, parms.raidStrategy, parms.faction, PawnGroupKindDefOf.Combat, parms.raidAgeRestriction);
                 // Generate pawns group maker
                 var group = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
                 if (group == null)
@@ -289,10 +287,9 @@ namespace VSEWW
                     || !m.globalHediffs.NullOrEmpty()
                     || !m.specificPawnKinds.NullOrEmpty()
                     || !m.everRetreat))
+                {
                     continue;
-                if (map.Tile.LayerDef == PlanetLayerDefOf.Orbit
-                    && !m.incidents.NullOrEmpty())
-                    continue;
+                }
 
                 allUsable.Add(m);
             }

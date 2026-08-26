@@ -50,6 +50,12 @@ namespace VSEWW
                     return true;
                 }
 
+                if (nextRaidInfo.parms == null)
+                {
+                    Log.Warning("[VSEWW] parms == null");
+                    return true;
+                }
+
                 if (nextRaidInfo.parms.raidStrategy == null)
                 {
                     Log.Warning("[VSEWW] raidStrategy == null");
@@ -92,6 +98,7 @@ namespace VSEWW
         public void SaveWaveGlobal()
         {
             var worldComponent_VSEWW = Find.World.GetComponent<WorldComponent_VSEWW>();
+
             worldComponent_VSEWW.currentWave = currentWave;
             worldComponent_VSEWW.nextRaidSendAllies = nextRaidSendAllies;
             worldComponent_VSEWW.nextRaidMultiplyPoints = nextRaidMultiplyPoints;
@@ -120,7 +127,12 @@ namespace VSEWW
 
         public override void MapRemoved()
         {
-            SaveWaveGlobal();
+            if (Find.Storyteller.def.defName == "VSE_WinstonWave" && Find.Storyteller.difficultyDef != InternalDefOf.Peaceful)
+            {
+                SaveWaveGlobal();
+                RemoveCounter();
+            }
+
             base.MapRemoved();
         }
 

@@ -59,4 +59,35 @@ namespace VSEWW
             }
         }
     }
+
+    public static class LayeredAtmosphereOrbitIntegration
+    {
+        public static Type ExtensionType =
+            GenTypes.GetTypeInAnyAssembly(
+                "LayeredAtmosphereOrbit.LayeredAtmosphereOrbitDefModExtension");
+
+        public static readonly FieldInfo MinArrivalFactionTechLevel =
+            ExtensionType?.GetField(
+                "minArrivalFactionTechLevel",
+                BindingFlags.Instance | BindingFlags.Public);
+
+        public static readonly FieldInfo MaxArrivalFactionTechLevel =
+            ExtensionType?.GetField(
+                "maxArrivalFactionTechLevel",
+                BindingFlags.Instance | BindingFlags.Public);
+
+        public static readonly FieldInfo WhitelistArrivalFactionDef =
+            ExtensionType?.GetField(
+                "WhitelistArrivalFactionDef",
+                BindingFlags.Instance | BindingFlags.Public);
+
+        public static readonly FieldInfo BlacklistArrivalFactionDef =
+            ExtensionType?.GetField(
+                "BlacklistArrivalFactionDef",
+                BindingFlags.Instance | BindingFlags.Public);
+
+        public static bool LAOActive => ExtensionType != null;
+
+
+    }
 }

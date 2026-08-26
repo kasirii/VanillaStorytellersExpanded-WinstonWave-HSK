@@ -79,7 +79,7 @@ namespace VSEWW
         private Faction RandomEnnemyFaction(float points)
         {
             var allFactions = Find.FactionManager.AllFactions;
-            var factions = new List<Faction>();            
+            var factions = new List<Faction>();
             foreach (var f in allFactions)
             {
                 if ((WinstonMod.settings.excludedFactionDefs == null || !WinstonMod.settings.excludedFactionDefs.Contains(f.def.defName))
@@ -89,13 +89,13 @@ namespace VSEWW
                     && f.def.defName != "VRE_Archons"
                     && f.HostileTo(Faction.OfPlayer)
                     && IgnoranceIntegration.IsFactionAllowed(f)
-                    && ((f.def.earliestRaidDays <= GenDate.DaysPassed * WinstonMod.settings.dayMultiplier) 
+                    && ((f.def.earliestRaidDays <= GenDate.DaysPassed * WinstonMod.settings.dayMultiplier)
                         || !WinstonMod.settings.earliestRaidCheck)
                     && f.def.pawnGroupMakers != null
                     && f.def.pawnGroupMakers.Any(p => p.kindDef == PawnGroupKindDefOf.Combat && points <= p.maxTotalPoints)
                     && points > f.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat)
-                    && ((map.Tile.LayerDef == PlanetLayerDefOf.Orbit)
-                        != (f.def.layerWhitelist?.Contains(PlanetLayerDefOf.Orbit) == true) == false))
+                    && CanFactionArriveOnLayer(f, map.Tile.LayerDef)
+                    && f.def.RaidCommonalityFromPoints(points) != 0)
                 {
                     factions.Add(f);
                 }
@@ -117,8 +117,77 @@ namespace VSEWW
                 }
                 return f.def.RaidCommonalityFromPoints(points) * num;
             }, out Faction faction);
-
             return faction;
+        }
+
+        private bool CanFactionArriveOnLayer(Faction faction, PlanetLayerDef layer)
+        {
+            if (faction == null || faction.def == null || layer == null)
+                return false;
+
+            FactionDef factionDef = faction.def;
+
+            //if (factionDef.arrivalLayerWhitelist != null
+            //    && factionDef.arrivalLayerWhitelist.Count > 0
+            //    && !factionDef.arrivalLayerWhitelist.Contains(PlanetLayerDefOf.Orbit))
+            //{
+            //    return false;
+            //}
+
+            //if (map.Tile.LayerDef.isSpace!= (f.def.layerWhitelist?.Contains(PlanetLayerDefOf.Orbit) == true) == false)
+            //{
+            //    return false;
+            //}
+
+            if (map.Tile.LayerDef.isSpace
+                && !factionDef.arrivalLayerWhitelist.Contains(PlanetLayerDefOf.Orbit))
+            {
+                return false;
+            }
+
+            if (!LayeredAtmosphereOrbitIntegration.LAOActive)
+                return true;
+
+            DefModExtension extension = layer.modExtensions?
+                .FirstOrDefault(x => LayeredAtmosphereOrbitIntegration.ExtensionType.IsInstanceOfType(x));
+
+            if (extension == null)
+                return true;
+
+            if ((TechLevel)LayeredAtmosphereOrbitIntegration.MinArrivalFactionTechLevel.GetValue(extension) != TechLevel.Undefined
+                && factionDef.techLevel < (TechLevel)LayeredAtmosphereOrbitIntegration.MinArrivalFactionTechLevel.GetValue(extension))
+            {
+                return false;
+            }
+
+            if ((TechLevel)LayeredAtmosphereOrbitIntegration.MaxArrivalFactionTechLevel.GetValue(extension) != TechLevel.Undefined
+                && factionDef.techLevel > (TechLevel)LayeredAtmosphereOrbitIntegration.MaxArrivalFactionTechLevel.GetValue(extension))
+            {
+                return false;
+            }
+
+            var whitelist =
+                LayeredAtmosphereOrbitIntegration.WhitelistArrivalFactionDef.GetValue(extension)
+                as List<FactionDef>;
+
+            if (whitelist != null
+                && whitelist.Count > 0
+                && !whitelist.Contains(factionDef))
+            {
+                return false;
+            }
+
+            var blacklist =
+                LayeredAtmosphereOrbitIntegration.BlacklistArrivalFactionDef.GetValue(extension)
+                as List<FactionDef>;
+
+            if (blacklist != null
+                && blacklist.Contains(factionDef))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -137,7 +206,8 @@ namespace VSEWW
                 Startup.normalStrategies.FindAll(s => CanUseStrategy(s)).TryRandomElementByWeight(d => d.Worker.SelectionWeightForFaction(map, parms.faction, parms.points), out parms.raidStrategy);
             
             if (parms.raidArrivalModeForQuickMilitaryAid && !DefDatabase<PawnsArrivalModeDef>.AllDefs.Where<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => d.forQuickMilitaryAid)).Any<PawnsArrivalModeDef>((Func<PawnsArrivalModeDef, bool>)(d => (double)d.Worker.GetSelectionWeight(parms) > 0.0))
-                || parms.faction.def.arrivalModeWhitelist.Contains(PawnsArrivalModeDefOf.EdgeDrop))
+                || parms.faction.def.arrivalModeWhitelist.Contains(PawnsArrivalModeDefOf.EdgeDrop)
+                || map.Tile.LayerDef.defName.Contains("LAO"))
             {
                 parms.raidArrivalMode = (double)Rand.Value < 0.60000002384185791 ? PawnsArrivalModeDefOf.EdgeDrop : PawnsArrivalModeDefOf.CenterDrop;
             }
